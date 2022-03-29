@@ -4,10 +4,12 @@ import datetime
 
 
 
-class DataBase():
+class Database():
     DATABASE_NAME = "RSDB.db"
     USERS_TABLE = "users"
     DEVICES_TABLE = "devices"
+    CLIENT_TABLE = "clients"
+    
 
     current_datetime = datetime.datetime.now()
 
@@ -17,21 +19,23 @@ class DataBase():
 
 
     def signup(self,user):
-        user_type = 'client'
         _user = user
         isregistered = self.check_device_id(_user.device_id)    #check if device exist/ is registered
         if isregistered:
-            self.cur.execute(f"INSERT INTO {USERS_TABLE}('user_type','user_id', 'device_id', 'password')VALUES(?,?,?,?)", 
+            self.cursor.execute(f"INSERT INTO {USERS_TABLE}('user_type','user_id', 'device_id', 'password')VALUES(?,?,?,?)", 
             (_user.user_type, _user.user_id, _user.device_id, _user.password))
-            self.con.commit()
+            self.connection.commit()
             #insert data into client db
+            # self.cursor.execute(f"INSERT INTO {CLIENT_TABLE}('user_id','user_id', 'device_id', 'password')VALUES(?,?,?,?)", 
+            # (_user.user_type, _user.user_id, _user.device_id, _user.password))
+            # self.connection.commit()
             return True
         return False
 
 
     def signin(self, user,user_id,password):
-        self.cur.execute("SELECT * FROM users WHERE user_id=? AND password=?", (user_id,password))
-        data = self.cur.fetchall()
+        self.cursor.execute("SELECT * FROM users WHERE user_id=? AND password=?", (user_id,password))
+        data = self.cursor.fetchall()
         if len(data) > 0:
             #user_type = data[0][1]
             # print(data)
@@ -42,26 +46,26 @@ class DataBase():
     def insert_readings(self,sensor_data,dynamic_table_name):
         sensor = sensor_data
         #insert data from the sensors
-        self.cur.execute(f"INSERT INTO {dynamic_table_name}('sensor','reading','datetime')VALUES(?,?,?)",
+        self.cursor.execute(f"INSERT INTO {dynamic_table_name}('sensor','reading','datetime')VALUES(?,?,?)",
         (sensor.sensor_type,sensor.reading,current_datetime))
-        self.con.commit()
+        self.connection.commit()
         return True
         
 
     def select(self,table_name):
-        self.cur.execute(f"SELECT * FROM {table_name}")
-        data = self.cur.fetchall()
+        self.cursor.execute(f"SELECT * FROM {table_name}")
+        data = self.cursor.fetchall()
         return data
 
     def select_where(self,table_name,column_name,data):
-        self.cur.execute(f"SELECT * FROM {table_name} WHERE {column_name}=?", (data,))
-        data = self.cur.fetchall()
+        self.cursor.execute(f"SELECT * FROM {table_name} WHERE {column_name}=?", (data,))
+        data = self.cursor.fetchall()
         return data
 
 
     def ispresent(self,table_name,column_name,data):
-        self.cur.execute(f"SELECT * FROM {table_name} WHERE {column_name}=?", (data,))
-        data = self.cur.fetchall()
+        self.cursor.execute(f"SELECT * FROM {table_name} WHERE {column_name}=?", (data,))
+        data = self.cursor.fetchall()
         return len(data) > 0
 
 
@@ -77,17 +81,17 @@ class DataBase():
 
 
     def update_subscription(self,subscription,device_id):
-        self.cur.execute("UPDATE clients SET subscription_type=? WHERE device_id=?", (subscription,device_id))
-        self.con.commit()
+        self.cursor.execute("UPDATE clients SET subscription_type=? WHERE device_id=?", (subscription,device_id))
+        self.connection.commit()
         return True
 
     def delete_one(self,table_name,column_name,data_id):
-        self.cur.execute(f"DELETE FROM {table_name} WHERE {column_name}=?", (data_id,))
-        self.con.commit()
+        self.cursor.execute(f"DELETE FROM {table_name} WHERE {column_name}=?", (data_id,))
+        self.connection.commit()
         return True
         
     def delete_rows(self,table_name):
-        self.cur.execute(f"DELETE FROM {table_name}")
-        self.con.commit()
+        self.cursor.execute(f"DELETE FROM {table_name}")
+        self.connection.commit()
         return True
     
