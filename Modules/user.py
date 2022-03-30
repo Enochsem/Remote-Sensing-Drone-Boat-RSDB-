@@ -7,3 +7,7 @@ class User():
         self.device_id = device_id
         self.password = password
         self.subscription_type = subscription_type
+
+
+    def factory(self):
+        pass

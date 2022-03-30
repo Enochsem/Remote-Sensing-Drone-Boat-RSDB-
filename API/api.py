@@ -97,20 +97,30 @@ def register():
     return jsonify({"response":"invalid credentials"}) , 401
 
 
-@app.route('/subscription/<string:subscription_type>', methods=['POST'])
-def subscription(subscription_type):
-    #update client subscription type
-    request = request.get_json()
-    device_id = request['device_id']
+@app.route('/subscription', methods=['POST'])
+def subscription():
+    #update users table with subscription type
+    data = request.get_json()
+    subscription_type = data["subscription_type"]
+    device_id = data['device_id']
+    
+    database = Database()
+    database.update_subscription(subscription_type, device_id)
     #get payment/ transaction id to validate payment
     return jsonify({"response":"subscription updated"})
 
+
+def update_client_dashboard():
+    # update client dashboard with useful tips to maintain enhace productivity
+    pass
 
 
 def to_user_json(data):
     return {"id":data[0][0],"user_type":data[0][1],"user_id":data[0][2],"device_id":data[0][3]}
 
 
+def forgot_password():
+    pass
 
 if __name__ == "__main__":
     app.run(debug=True)

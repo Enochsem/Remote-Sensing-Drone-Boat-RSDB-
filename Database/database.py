@@ -85,8 +85,13 @@ class Database():
             return not ismanufactured #returns false
 
 
-    def update_subscription(self,subscription,device_id):
-        self.cursor.execute("UPDATE clients SET subscription_type=? WHERE device_id=?", (subscription,device_id))
+    def update_subscription(self,subscription_type,device_id):
+        self.cursor.execute("UPDATE clients SET subscription_type=? WHERE device_id=?", (subscription_type,device_id))
+        self.connection.commit()
+        return True
+
+    def update(self, table_name, column_name, where_column, update_data,column_id):
+        self.cursor.execute(f"UPDATE {table_name} SET {column_name}=? WHERE {where_column}=?", (update_data,column_id))
         self.connection.commit()
         return True
 
