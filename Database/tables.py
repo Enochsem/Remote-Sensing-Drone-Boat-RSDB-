@@ -5,42 +5,16 @@ DATABASE_NAME = "RSDB.db"
 connection = sqlite3.connect(DATABASE_NAME)
 cursor = connection.cursor()
 
-
-def create_sensor_table(device_id):
-    connection = sqlite3.connect(DATABASE_NAME)
-    cursor = connection.cursor()
-    sensor_table = f""" CREATE TABLE IF NOT EXISTS {device_id}
-    (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-    sensor_type TEXT NOT NULL, 
-    sensor_reading TEXT NOT NULL, 
-    datetime TIMESTAMP NOT NULL
-    )"""
-    try:
-        cursor.execute(sensor_table)
-        connection.commit()
-    except connection.Error as e:
-        print("SENSOR TABLE ERROR : ",e)
-    finally:
-        if connection:
-            connection.close()
-            
-
+#users table
 users_table = """CREATE TABLE IF NOT EXISTS users(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 user_type TEXT NOT NULL,
 user_id TEXT NOT NULL,
 device_id TEXT NULL,
 password TEXT NOT NULL,
-subscription_type TEXT  NULL
+datetime TIMESTAMP NULL
 )"""
 
-#table not used for now
-clients_table = """CREATE TABLE IF NOT EXISTS clients(
-id INTEGER PRIMARY KEY AUTOINCREMENT,
-user_id TEXT NOT NULL,
-device_id TEXT NOT NULL,
-subscription_type TEXT  NULL
-)"""
 
 #all manufactured drone boats
 devices_table = """CREATE TABLE IF NOT EXISTS devices(
@@ -50,10 +24,13 @@ device_id TEXT NOT NULL
 )"""
 
 
-# all sensors used
+# sensor readdings
 sensors_table = """CREATE TABLE IF NOT EXISTS sensors(
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
-sensor_type TEXT NOT NULL
+device_id TEXT NOT NULL,
+sensor_type TEXT NOT NULL, 
+sensor_reading TEXT NOT NULL, 
+datetime TIMESTAMP NOT NULL
 )"""
 
 
@@ -61,7 +38,7 @@ def createDB():
     try:
         cursor.execute(users_table)
         connection.commit()
-        cursor.execute(clients_table)
+        cursor.execute(sensors_table)
         connection.commit()
         cursor.execute(devices_table)
         connection.commit()
@@ -93,6 +70,6 @@ devices_query= """ INSERT INTO devices(device_type,device_id)VALUES(?,?)"""
 
 
 if __name__ == "__main__":
-    createDB()
+    #createDB()
     #default_data(users, users_query)
-    #default_data(devices, devices_query)
+    default_data(devices, devices_query)

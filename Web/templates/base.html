@@ -11,6 +11,9 @@
     {% block headscript %}
 
     {% endblock %}
+
+    <link rel="icon" type="image/png" href="../static/images/drone.png">
+
     <!-- charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -39,6 +42,7 @@
     <!-- Sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.all.min.js"></script>
 
+    
 </head>
 
 <body>
@@ -48,9 +52,10 @@
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
-            <div class="sidebar-header bg-primary">
-                <center> <i class="fas fa-coins fa-3x text-center"></i></center>
-                <h5>RSDB</h5>
+            <div class="sidebar-header border m-1 p-2 pt-3 text-center bg-primary">
+                <!-- <center> <i class="fas fa-coins fa-3x text-center"></i></center> -->
+                <center><img src="../static/images/svg/drone.svg" alt=""></center>
+                <h5>Remote Sensing</h5>
                 <strong>RS</strong>
             </div>
 
@@ -62,8 +67,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/monitor" class="nav-link">
-                        <i class="fas fa-coins"></i>
+                    <a href="/notification" class="nav-link">
+                        <i class="fa fa-bell"></i>
                         <!-- <i class="fa fa-clipboard" aria-hidden="true"></i> -->
                         Notification
                     </a>
@@ -71,26 +76,20 @@
                 <li class="nav-item dropdown dropright">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <i class="fa fa-file" aria-hidden="true"></i>
                         Report
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item sidebar_dropdown_item" href="/register_customer">Ph Sensor</a>
+                        <a class="dropdown-item sidebar_dropdown_item" href="/ph">Ph Sensor</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item sidebar_dropdown_item" href="/manage_customer">Turbidity Sensor</a>
+                        <a class="dropdown-item sidebar_dropdown_item" href="/ph">Turbidity Sensor</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item sidebar_dropdown_item" href="/manage_customer">TDS Sensor</a>
+                        <a class="dropdown-item sidebar_dropdown_item" href="/ph">TDS Sensor</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item sidebar_dropdown_item" href="/manage_customer">Temperature Sensor</a>
+                        <a class="dropdown-item sidebar_dropdown_item" href="/ph">Temperature Sensor</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a href="/monitor" class="nav-link">
-                        <i class="fas fa-coins"></i>
-                        <!-- <i class="fa fa-clipboard" aria-hidden="true"></i> -->
-                        Subscription
-                    </a>
-                </li>
+                
                 <!-- <li class="nav-item dropdown dropright">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -216,7 +215,7 @@
 <div class="modal fade" id="admin_logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content"  style="border: solid 1px white; background: linear-gradient(rgb(24, 179, 240), rgb(16, 156, 250),rgb(32, 98, 241), rgb(69, 57, 240),rgb(103, 41, 247));">
+        <div class="modal-content" >
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Confirm Logout</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -228,7 +227,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-decline" data-dismiss="modal">Close</button>
-                <a href="" class="btn btn-lg btn-acknowledge"
+                <a href="/logout" class="btn btn-lg btn-acknowledge"
                     type="submit">Logout</a>
             </div>
         </div>

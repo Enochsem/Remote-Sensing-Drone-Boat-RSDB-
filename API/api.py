@@ -50,7 +50,7 @@ def sensor_data(device_id):
     if device_id == "":
         response = "Device Id Not Found"
         return response
-    return jsonify({"response":response})
+    return jsonify({"response":response}) , 200
 
 #RECEIVE ALL THE SENSOR READING AS ONE JSON OBJECT
 @app.route("/sensor_readings", methods=['POST'])
@@ -66,7 +66,7 @@ def post_sensor_readings():
 
 
 @app.route('/login', methods=['POST'])
-def loginin():
+def login():
     #get user_id and password
     data = request.get_json()
     user_id = data['user_id']
@@ -75,7 +75,7 @@ def loginin():
     database = Database()
     user_data, user_exist = database.signin(user_id, password)
     if user_exist:
-        return jsonify({"response":to_user_json(user_data)}) , 200
+        return jsonify(to_user_json(user_data)) , 200
     return jsonify({"response":"invalid user credentials"}) , 401
 
 
@@ -101,7 +101,7 @@ def register():
 def subscription():
     #update users table with subscription type
     data = request.get_json()
-    subscription_type = data["subscription_type"]
+    subscription_type = data["subscription_type"]   
     device_id = data['device_id']
     
     database = Database()

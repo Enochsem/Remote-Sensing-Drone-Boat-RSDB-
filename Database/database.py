@@ -8,7 +8,8 @@ class Database():
     DATABASE_NAME = "RSDB.db"
     USERS_TABLE = "users"
     DEVICES_TABLE = "devices"
-    CLIENT_TABLE = "clients"
+    SENSOR_TABLE = "sensors"
+    CLIENT_TABLE = "clients" #not used
     
 
     current_datetime = datetime.datetime.now()
@@ -27,10 +28,7 @@ class Database():
             self.cursor.execute(f"INSERT INTO {self.USERS_TABLE}('user_type','user_id', 'device_id', 'password')VALUES(?,?,?,?)", 
             (_user.user_type, _user.user_id, _user.device_id, _user.password))
             self.connection.commit()
-            #insert data into client db  #this is on hold
-
-            #on signup create sensor table to collect sensor reading
-            self.create_sensor_table(_user.device_id)
+            
             return True
         return False
 
@@ -42,15 +40,14 @@ class Database():
             #user_type = data[0][1]
             print("signed in: ",data)
             return data, True
-        return False
+        return {"response":"Invalid Credencials"}, False
 
 
     def insert_readings(self,sensor_data):
         sensor = sensor_data
-        dynamic_table_name = sensor.device_id
         #insert data from the sensors
-        self.cursor.execute(f"INSERT INTO {dynamic_table_name}('sensor','reading','datetime')VALUES(?,?,?)",
-        (sensor.sensor_type,sensor.reading,current_datetime))
+        self.cursor.execute(f"INSERT INTO {self.SENSOR_TABLE}('device_id','sensor_type','sensor_reading','datetime')VALUES(?,?,?,?)",
+        (sensor.device_id, sensor.sensor_type,sensor.reading,current_datetime))
         self.connection.commit()
         return True
         

@@ -168,7 +168,7 @@ $(document).ready(function(){
           'Yellow'
         ],
         datasets: [{
-          label: 'My First Dataset',
+          label: 'TDS Sensor',
           data: [300, 50, 100],
           backgroundColor: [
             'rgb(255, 99, 132)',
