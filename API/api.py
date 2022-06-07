@@ -6,18 +6,21 @@ from Database.database import Database
 from Database.tables import  createDB
 from Modules.user import User
 from Modules.device import DeviceSensor
+from datetime import datetime
 
 
 
 app = Flask(__name__)
 
 
+current_datetime = datetime.now()
+
 # @app.before_request
 # def accept_json():
 #     if not request.is_json: 
 #         abort(400) 
 
-
+ 
 @app.route("/")
 def index():
     return jsonify({'welcome':"Remote Sensing Drone Boat"}), 200
@@ -28,29 +31,33 @@ def index():
 @app.route("/sensor_data", methods=['GET'])
 def get_sensor_data():
     column_name = "sensor_type"
-    data = request.get_json()
-    table_name = data["device_id"]
+    table_name = "sensors"
+    device_id = request.args.get("device_id")
+    #you can perform an authentication 
+    sensor_type = request.args.get("sensor_type")
+    print("data here1 : ",sensor_type)
     database = Database()
     #query database and return Specific data
-    response = database.select_where(table_name, column_name, data["sensor_type"]) 
-    # device_id = data_request['device_id']
+    response = database.select_where(table_name, column_name, sensor_type) 
+    print(response, "data type ", type(response))
     if len(response) < 0:
         response = "No readings from sensor yet"
-        return response
-    return jsonify({"response":response}) #create a json response object for response
+        return jsonify({"Error":response}), 301
+    return jsonify({"response": response}), 200 
 
 
 #SEND All READINGS TO CONNECTED DEVICES
 @app.route("/sensor_data/<string:device_id>", methods=['GET'])
 def sensor_data(device_id):
-    table_name = device_id
+    table_name = "sensors"
     #query database and return all data
     database = Database()
     response = database.select(table_name)
-    if device_id == "":
-        response = "Device Id Not Found"
-        return response
+    if len(response) < 0:
+        response = "Device Has Not Taking any Readings"
+        return jsonify({"Error":response}), 301
     return jsonify({"response":response}) , 200
+
 
 #RECEIVE ALL THE SENSOR READING AS ONE JSON OBJECT
 @app.route("/sensor_readings", methods=['POST'])
@@ -62,6 +69,22 @@ def post_sensor_readings():
     status = database.insert_readings(device_sensor)
     if status:
         return jsonify({"response":"received"}) , 201
+        
+    #check the thresholds here and insert them into a notification table
+    Threshold = {
+    Ph: 8,
+    Turbidity: 150,
+    Temperature : 32,
+    TDS: 400 
+    }
+
+    for d in data['data']:
+        for key in Threshold:
+            if d == key:
+                if data['data'][d] >= Threshold[key]:
+                    #insert data 
+                    status = database.insert("notification", f"Threshold of {Threshold[key]} reach for {key}", "solution", "1")
+    
     return jsonify({"response":"Invalid"}) , 401
 
 
@@ -97,17 +120,37 @@ def register():
     return jsonify({"response":"invalid credentials"}) , 401
 
 
-@app.route('/subscription', methods=['POST'])
+@app.route('/notification_detail', methods=['POST'])
 def subscription():
-    #update users table with subscription type
+    #update notification status to -1 
     data = request.get_json()
-    subscription_type = data["subscription_type"]   
     device_id = data['device_id']
     
     database = Database()
-    database.update_subscription(subscription_type, device_id)
-    #get payment/ transaction id to validate payment
-    return jsonify({"response":"subscription updated"})
+    status = database.update("notification", "status", "id", "-1", data["notification_id"])
+    if status:
+        response = database.select_where("notification", "id", data['notification_id'])
+        return jsonify({"response":response}) ,200
+        response = "invalid Message ID"
+    return jsonify({"response":response}) ,400
+
+
+
+@app.route("/notify", methods=['GET'])
+def notify():
+    ph_threshold = 8
+    turbidity_threshold = 0
+    tds_threshold = 0
+    temperature = 0
+
+    table_name = "notification"
+    database = Database()
+    data = database.select(table_name)
+    if len(data) > 0:
+        return jsonify({"response":data}) , 200
+    return jsonify({"response":"invalid credentials"}) , 401
+
+
 
 
 def update_client_dashboard():
@@ -117,6 +160,9 @@ def update_client_dashboard():
 
 def to_user_json(data):
     return {"id":data[0][0],"user_type":data[0][1],"user_id":data[0][2],"device_id":data[0][3]}
+
+
+#create a json object forset data in sensor type
 
 
 def forgot_password():

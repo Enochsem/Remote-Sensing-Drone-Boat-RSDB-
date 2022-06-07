@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% endblock %}
+
+
+
+{% block body %}
+
+<div class="card mb-5" style="overflow: auto;">
+    <div class="container-fluid">
+        <div class="card-body">
+            <div class="text-primary text-center">
+                <h4>Threshold Notifications</h4>
+            </div>
+            <div id="">
+                <table>
+                    <tbody>
+                        {% if data_lenght > 0 %}
+                        {% for data in range(data_lenght) %}
+                        <tr>
+                            <td>{{detail[data][1]}}</td>
+                            <td>{{detail[data][2]}}</td>
+                            <td>{{detail[data][4]}}</td>
+                            <td>
+                                {% if detail[data][3] == "1" %}
+                                Reading...
+                                {% endif %}
+                            </td>
+                            <td>
+                                <form action="" method="POST">
+                                    <input type="text" name="delete_id" value="" hidden>
+
+                                    <input name="submit" value="delete_agent" hidden>
+                                    <button class="btn btn-danger" type="submit"><i
+                                            class="material-icons">delete_outline</i></button>
+
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

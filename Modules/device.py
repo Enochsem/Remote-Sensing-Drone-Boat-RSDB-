@@ -13,3 +13,7 @@ class DeviceSensor():
         for row in range(len(rows)):
             json_data.append({self.device_id : rows[row][0],self.sensor_type: rows[row][1],self.sensor_reading : rows[row][2]})
         return json_data            
+
+    
+    def check (self,json_data):
+        pass

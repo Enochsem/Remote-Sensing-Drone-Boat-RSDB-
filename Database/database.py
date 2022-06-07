@@ -51,6 +51,15 @@ class Database():
         self.connection.commit()
         return True
         
+    
+    def insert(self,table,message, solution,status):
+        sensor = sensor_data
+        #insert data from the sensors
+        self.cursor.execute(f"INSERT INTO {table}('message','solution','status')VALUES(?,?,?)",
+        (message, solution,status))
+        self.connection.commit()
+        return True
+
 
     def select(self,table_name):
         self.cursor.execute(f"SELECT * FROM {table_name}")

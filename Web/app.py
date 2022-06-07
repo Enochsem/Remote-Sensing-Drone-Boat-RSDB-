@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, redirect, json, request, jsonify, session
+from flask import Flask, flash, render_template, redirect, json, request, jsonify, session, url_for
 import requests as api
 import json
 # from Modules.user import User
@@ -48,10 +48,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/login', methods=['GET','POST'])
-def login():
-    return render_template("login.html")
-
 
 @app.route('/signup')
 def signup():
@@ -64,31 +60,211 @@ def dashboard():
     #start a session here
     if not session.get("user_id"):
         return redirect('/')
+    #setting the data from api as null as default value
+    data = ""
     #get session data
     user_id = session.get("user_id")
-    device_id = session.get("device_id")
+    device_id = str(session.get("device_id"))
     password = session.get("password")
+    
     #get data from api
     url = f"{baseURL}/sensor_data/{device_id}"
-    response = api.post(url=url)
+    response = api.get(url=url)
     if response.status_code == 200:
         data = response.json()
         print("response from api ",data)
-        return redirect(location='/dashboard',data = data)
+        data_lenght = len(data['response'])
+        #split sensor data into its components and find data size or lenght
     
-    return render_template("dashboard.html",user_id= user_id,device_id=device_id)
+    return render_template("dashboard.html",device_id=device_id, data = data)
 
 
 @app.route('/notification')
 def notification():
-    tresh_hold =3
-    return render_template("notification.html")
+    #start a session here
+    if not session.get("user_id"):
+        return redirect('/')
 
+    #get data from api
+    url = f"{baseURL}/notify"
+    response = api.get(url=url)
+    if response.status_code == 200:
+        data = response.json()
+        print("response from api ",data)
+        data_lenght = len(data['response'])
+    return render_template("notification.html", notification=data['response'], data_lenght=data_lenght)
+
+
+@app.route('/notification/<int:notification_id>')
+def notification_detail(notification_id):
+    # WILL HANDLE THE SOLUTIONS TO THE THRESHOLD LIMITS
+
+    #start a session here
+    if not session.get("user_id"):
+        return redirect('/')
+
+    device_id = str(session.get("device_id"))
+    #get data from api
+    url = f"{baseURL}/notification_detail"
+    data= {"device_id":device_id, "notification_id":notification_id}
+    response = api.post(url=url, json=data)
+    if response.status_code == 200:
+        data = response.json()
+        print("response from api ",data)
+        data_lenght = len(data['response'])
+    return render_template("notification_detail.html", detail=data['response'], data_lenght=data_lenght)
+
+
+# https://www.instagram.com/taila_sky/
+# https://www.linkedin.com/in/%F0%9F%9A%80-taylor-benjamin-997769b9/
 
 @app.route('/ph')
 def ph():
-    return render_template("ph.html")
+     #start a session here
+    if not session.get("user_id"):
+        return redirect('/')
+    #setting the data from api as null as default value
+    data = ""
+    data_lenght = 0
+    #get session data
+    user_id = session.get("user_id")
+    device_id = str(session.get("device_id"))
+    password = session.get("password")
+    
+    #get data from api
+    url = f"{baseURL}/sensor_data"
+    params = {"device_id": device_id, "sensor_type":"Ph"}
+    response = api.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        print("response from api ",data)
+        data_lenght = len(data['response'])
+    return render_template("ph.html",data=data['response'], data_lenght=data_lenght)
 
+
+
+
+@app.route('/turbidity')
+def turbidity():
+     #start a session here
+    if not session.get("user_id"):
+        return redirect('/')
+    #setting the data from api as null as default value
+    data = ""
+    data_lenght = 0
+    #get session data
+    user_id = session.get("user_id")
+    device_id = str(session.get("device_id"))
+    password = session.get("password")
+    
+    #get data from api
+    url = f"{baseURL}/sensor_data"
+    params = {"device_id": device_id, "sensor_type":"Turbidity"}
+    response = api.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        print("response from api ",data)
+        data_lenght = len(data['response'])
+    return render_template("turbidity.html",data=data['response'], data_lenght=data_lenght)
+
+
+
+@app.route('/tds')
+def tds():
+     #start a session here
+    if not session.get("user_id"):
+        return redirect('/')
+    #setting the data from api as null as default value
+    data = ""
+    data_lenght = 0
+    #get session data
+    user_id = session.get("user_id")
+    device_id = str(session.get("device_id"))
+    password = session.get("password")
+    
+    #get data from api
+    url = f"{baseURL}/sensor_data"
+    params = {"device_id": device_id, "sensor_type":"TDS"}
+    response = api.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        print("response from api ",data)
+        data_lenght = len(data['response'])
+    return render_template("tds.html",data=data['response'], data_lenght=data_lenght)
+
+
+
+@app.route('/temperature')
+def temperature():
+     #start a session here
+    if not session.get("user_id"):
+        return redirect('/')
+    #setting the data from api as null as default value
+    data = ""
+    data_lenght = 0
+    #get session data
+    user_id = session.get("user_id")
+    device_id = str(session.get("device_id"))
+    password = session.get("password")
+    
+    #get data from api
+    url = f"{baseURL}/sensor_data"
+    params = {"device_id": device_id, "sensor_type":"Temperature"}
+    response = api.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        print("response from api ",data)
+        data_lenght = len(data['response'])
+    return render_template("temperature.html",data=data['response'], data_lenght=data_lenght)
+
+
+
+@app.route('/custom')
+def custom():
+    #start a session here
+    if not session.get("user_id"):
+        return redirect('/')
+    #setting the data from api as null as default value
+    data = ""
+    #get session data
+    user_id = session.get("user_id")
+    device_id = str(session.get("device_id"))
+    password = session.get("password")
+    
+    #get all data from api
+    url = f"{baseURL}/sensor_data/{device_id}"
+    response = api.get(url=url)
+    if response.status_code == 200:
+        data = response.json()
+        print("response from api ",data)
+        data_lenght = len(data['response'])
+    return render_template("custom.html",all_data = data['response'], data_lenght=data_lenght)
+
+
+
+@app.route("/get_graph_data", methods=['GET'])
+def get_graph_data():
+    device_id = request.args.get("device_id")
+    sensor_type = request.args.get("sensor_type")
+    url = f"{baseURL}/sensor_data"
+    params = {"device_id": device_id, "sensor_type":sensor_type}
+    response = api.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        print("response from api ",data)
+    return data
+
+
+@app.route("/all_graph_data", methods=['GET'])
+def all_graph_data():
+    device_id = request.args.get("device_id")
+    #get all data from api
+    url = f"{baseURL}/sensor_data/{device_id}"
+    response = api.get(url=url)
+    if response.status_code == 200:
+        data = response.json()
+        print("response from api ",data)
+    return data
 
 
 @app.route('/logout')

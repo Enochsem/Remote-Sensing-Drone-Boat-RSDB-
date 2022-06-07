@@ -11,26 +11,26 @@
     <div class="container-fluid">
         <div class="card-body">
             <div class="text-primary text-center">
-                <h4>Ph Sensor</h4>
+                <h4>Turbidity Sensor</h4>
             </div>
             <div id="tb_rapper">
-                <table id="Ph_Sensor" class="display">
+                <table id="turbidity_sensor" class="display">
                     <thead>
                         <tr>
                             <th>Sensor ID</th>
                             <th>Sensor Data</th>
                             <th>Date</th>
-                            <th>control</th>
+                            <th>Control</th>
                         </tr>
                     </thead>
                     <tbody>
                         
                         {% if data_lenght > 0 %}
-                        {% for ph in range(data_lenght) %}
+                        {% for turbidity in range(data_lenght) %}
                         <tr>
-                            <td>{{data[ph][2]}}</td>
-                            <td>{{data[ph][3]}}</td>
-                            <td>{{data[ph][4]}}</td>
+                            <td>{{data[turbidity][2]}}</td>
+                            <td>{{data[turbidity][3]}}</td>
+                            <td>{{data[turbidity][4]}}</td>
                             <td>
                                 <form action="" method="POST">
                                     <input type="text" name="delete_id" value="" hidden>

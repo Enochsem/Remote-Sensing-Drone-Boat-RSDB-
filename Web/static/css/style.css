@@ -247,8 +247,8 @@ ul ul a {
 }
 
 #dashboardContent{
-    height: 100%;
-    overflow: auto;
+    height: 90%;
+    overflow: scroll;
     padding: 20px;
     position: relative;
 }

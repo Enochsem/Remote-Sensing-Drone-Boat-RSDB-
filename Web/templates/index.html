@@ -31,7 +31,7 @@
                 background-repeat: no-repeat;
             } */
             header{
-              padding: 40px;
+              padding: 20px;
               background-color: rgb(62, 62, 253);
             }
 
@@ -40,12 +40,15 @@
               background-color: rgb(62, 62, 253);
             }
 
-            .bl{
+            body{
               background-image: url('../static/images/bg.webp');
               background-position: center center;
               background-repeat: no-repeat;
-              border: red 2px solid;
-              height: 100vh;
+              /* border: red 2px solid; */
+              height: 100%;
+              max-height: 100%;
+              width: 100%;
+              max-width: 100%;
             }
         </style>
 
@@ -53,16 +56,16 @@
 <body>
   <header class="text text-center uppercase">Remote Sensing Drone Boat</header>
     
-  <div class="bl d-flex justify-content-center" style="height: 540px;">
+  <div class="bl d-flex justify-content-center">
      <div style="display: table-cell; vertical-align: middle;" class="mt-5">
       <!-- admin signin Button trigger modal -->
       <button class=" m-2 btn btn-lg btn-dark" data-toggle="modal" data-target="#userlogin">
-        <i class="fas fa-sign-out-alt"></i>Signin
+        <i class="fas fa-sign-out-alt"></i> Signin
       </button>
       
         <!-- admin signup Button trigger modal -->
       <button class=" m-2 btn btn-lg  btn-primary rounded" data-toggle="modal" data-target="#usersignup">
-        <i class="fas fa-sign-in-alt"></i>Signup
+        <i class="fas fa-sign-in-alt"></i> Signup
       </button>
       
      </div>
@@ -105,22 +108,22 @@
                     <div class="form-col align-items-center mx-3">
                         
                         <div class="form-group">
-                          <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                          <label class="" for="inlineFormInputGroup">Username</label>
                           <div class="input-group mb-2">
                             <div class="input-group-prepend">
                               <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
                             </div>
-                            <input name="user_id" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                            <input name="user_id" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter Username">
                           </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="sr-only" for="inlineFormInputGroup">Password</label>
+                            <label class="" for="inlineFormInputGroup">Password</label>
                             <div class="input-group mb-2">
                               <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-lock-alt"></i></div>
                               </div>
-                              <input name="password" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Password">
+                              <input name="password" type="password" class="form-control" id="inlineFormInputGroup" placeholder="Enter Password">
                             </div>
                         </div>
 
@@ -172,7 +175,7 @@
                     <div class="form-col align-items-center mx-3">
                         
                         <div class="form-group">
-                          <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                          <label class="" for="inlineFormInputGroup">Username</label>
                           <div class="input-group mb-2">
                             <div class="input-group-prepend">
                               <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
@@ -182,7 +185,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="sr-only" for="inlineFormInputGroup">Device ID</label>
+                            <label class="" for="inlineFormInputGroup">Device ID</label>
                             <div class="input-group mb-2">
                               <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-drone"></i></div>
@@ -192,22 +195,22 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="sr-only" for="inlineFormInputGroup">Password</label>
+                            <label class="" for="inlineFormInputGroup">Password</label>
                             <div class="input-group mb-2">
                               <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-lock-alt"></i></div>
                               </div>
-                              <input name="password" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Password">
+                              <input name="password" type="password" class="form-control" id="inlineFormInputGroup" placeholder="Password">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="sr-only" for="inlineFormInputGroup"> Confirm Password</label>
+                            <label class="" for="inlineFormInputGroup"> Confirm Password</label>
                             <div class="input-group mb-2">
                               <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-lock-alt"></i></div>
                               </div>
-                              <input name="confirm_password" type="text" class="form-control" id="confirm_password" placeholder="Confirm Password">
+                              <input name="confirm_password" type="password" class="form-control" id="confirm_password" placeholder="Confirm Password">
                             </div>
                         </div>
 
