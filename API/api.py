@@ -35,11 +35,11 @@ def get_sensor_data():
     device_id = request.args.get("device_id")
     #you can perform an authentication 
     sensor_type = request.args.get("sensor_type")
-    print("data here1 : ",sensor_type)
+    # print("data here1 : ",sensor_type)
     database = Database()
     #query database and return Specific data
     response = database.select_where(table_name, column_name, sensor_type) 
-    print(response, "data type ", type(response))
+    # print(response, "data type ", type(response))
     if len(response) < 0:
         response = "No readings from sensor yet"
         return jsonify({"Error":response}), 301
@@ -71,6 +71,7 @@ def post_sensor_readings():
         return jsonify({"response":"received"}) , 201
         
     #check the thresholds here and insert them into a notification table
+    # add low tresholds eg: Ph levels below 6 etc
     Threshold = {
     Ph: 8,
     Turbidity: 150,
@@ -111,7 +112,7 @@ def register():
     user_id = data['user_id']
     device_id = str(data['device_id'])
     password = data['password']
-    print("in api", device_id)
+    # print("in api", device_id)
     user = User(user_type, user_id, device_id, password)
     #query db
     registered = database.signup(user)

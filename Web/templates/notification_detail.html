@@ -7,44 +7,55 @@
 
 {% block body %}
 
-<div class="card mb-5" style="overflow: auto;">
-    <div class="container-fluid">
-        <div class="card-body">
-            <div class="text-primary text-center">
-                <h4>Threshold Notifications</h4>
-            </div>
-            <div id="">
-                <table>
-                    <tbody>
-                        {% if data_lenght > 0 %}
-                        {% for data in range(data_lenght) %}
-                        <tr>
-                            <td>{{detail[data][1]}}</td>
-                            <td>{{detail[data][2]}}</td>
-                            <td>{{detail[data][4]}}</td>
-                            <td>
-                                {% if detail[data][3] == "1" %}
-                                Reading...
-                                {% endif %}
-                            </td>
-                            <td>
-                                <form action="" method="POST">
-                                    <input type="text" name="delete_id" value="" hidden>
+<div class="text-primary text-center mb-5">
+    <h4>Threshold Notifications</h4>
+</div>
 
-                                    <input name="submit" value="delete_agent" hidden>
-                                    <button class="btn btn-danger" type="submit"><i
-                                            class="material-icons">delete_outline</i></button>
 
-                                </form>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        {% endif %}
-                    </tbody>
-                </table>
+{% if data_lenght > 0 %}
+{% for data in range(data_lenght) %}
+
+<div class="d-flex justify-content-around mb-3">
+    <p class="text">
+        Notification Date: {{detail[data][4]}}
+    </p>
+    <p class="text">
+        {% if detail[data][3] == "-1" %}
+        Notification Status: <span class="text-success">Reading...</span>
+        {% endif %}
+    </p>
+</div>
+
+<div class="d-flex justify-content-start">
+
+    <div class="container d-flex justify-content-center">
+        <p class="text text-center text-dark mr-2">Notification Message Content : </p>
+        <div class="card mb-5 " style="overflow: auto; width: 350px;">
+            <div class="card-body">
+                <span class="text-warning">{{detail[data][1]}}</span>
             </div>
         </div>
     </div>
 </div>
+
+<div class="d-flex justify-content-start">
+
+    <div class="container d-flex justify-content-center">
+        <p class="text text-center text-dark mr-2">Threshold Notification Solution:</p>
+        <div class="card mb-5 " style="overflow: auto; width: 350px;">
+            <div class="card-body">
+                <span class="text-success">{{detail[data][2]}}</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endfor %}
+{% endif %}
+
+
+
 
 {% endblock %}
