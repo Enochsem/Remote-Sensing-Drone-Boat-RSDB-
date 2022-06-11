@@ -21,7 +21,7 @@
                             <th>Solution</th>
                             <th>Date</th>
                             <th>Status</th>
-                            <th>Control</th>
+                            <!-- <th>Control</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -30,7 +30,7 @@
                         {% for data in range(data_lenght) %}
                         <tr>
                             <td>
-                                <a href="{{url_for('notification_detail', notification_id = notification[data][0])}}">
+                                <a class="text-primary" href="{{url_for('notification_detail', notification_id = notification[data][0])}}">
                                     {{notification[data][1]}}
                                 </a>
                             </td>
@@ -38,12 +38,12 @@
                             <td>{{notification[data][4]}}</td>
                             <td>
                                 {% if notification[data][3] == "1" %}
-                                Pending
+                                <span class="text-warning">Pending</span>
                                 {% else %}
-                                Read
+                                <span class="text-success">Read</span>
                                 {% endif %}
                             </td>
-                            <td>
+                            <!-- <td>
                                 <form action="" method="POST">
                                     <input type="text" name="delete_id" value="" hidden>
 
@@ -52,7 +52,7 @@
                                             class="material-icons">delete_outline</i></button>
 
                                 </form>
-                            </td>
+                            </td> -->
                         </tr>
                         {% endfor %}
                         {% endif %}

@@ -10,7 +10,7 @@ users_table = """CREATE TABLE IF NOT EXISTS users(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 user_type TEXT NOT NULL,
 user_id TEXT NOT NULL,
-device_id TEXT NULL,
+device_id TEXT NOT NULL,
 password TEXT NOT NULL,
 datetime DATETIME DEFAULT CURRENT_TIMESTAMP
 )"""
@@ -80,11 +80,11 @@ def default_data(data,query):
             # connection.close()
 
     
-users = [("ADMIN","admin", "admin")]
+users = [("ADMIN","admin", "000", "admin")]
 devices = [("Version 1.0", "001"),("Version 2.0", "011"),("Version 3.0", "101")]
 sensor = [("001","Ph", "8"),("001","TDS", "28"),("001","Turbidity", "18"),("001","Temperature", "54")]
 notify = [("Ph threshold reached","Prepare a base solution", "1")]
-users_query = """ INSERT INTO users(user_type,user_id,password)VALUES(?,?,?)"""
+users_query = """ INSERT INTO users(user_type,user_id,device_id,password)VALUES(?,?,?,?)"""
 devices_query= """ INSERT INTO devices(device_type,device_id)VALUES(?,?)"""
 sensors_query= """ INSERT INTO sensors(device_id,sensor_type,sensor_reading)VALUES(?,?,?)"""
 notify_query= """ INSERT INTO notification(message,solution,status)VALUES(?,?,?)"""

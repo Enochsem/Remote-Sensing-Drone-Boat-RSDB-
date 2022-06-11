@@ -242,7 +242,7 @@ $(document).ready(function(){
             type: "line",
             label: 'Ph',fill: false,lineTension: 0,
             backgroundColor: "rgba(0,0,205,1.0)",
-            borderColor: "rgba(0,0,255,0.1)",
+            borderColor: "rgba(0,0,205,0.1)",
             data: ph_sensor},
             {
                 type: 'line',
@@ -260,7 +260,7 @@ $(document).ready(function(){
                 type: 'line',
                 label: 'Turbidity',
                 data: tur_sensor,
-                backgroundColor: "rgba(222,0,0,1.0)"
+                backgroundColor: "rgba(222,222,0,1.0)"
             }
         ]
     }
@@ -401,3 +401,8 @@ function set_card_data(sensor_type,last_element){
         $('#TDS_value').html(last_element + " ppm");
     }
 }
+
+setInterval(() => {
+    
+}, 5000);  
+// 5 sec

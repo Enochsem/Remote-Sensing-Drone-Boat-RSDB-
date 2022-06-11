@@ -24,7 +24,7 @@ def index():
             if response.status_code == 200:
                 data = response.json()
                 #return a user object
-                print("response from api",data)
+                # print("response from api",data)
                 #set & store data in a session
                 session["user_id"]= data['user_id']
                 session["device_id"]= data['device_id']
@@ -42,17 +42,35 @@ def index():
             response = api.post(url=url, json=data)
             if response.status_code == 201:
                 data = response.json()
-                print("response from api ",data)
+                # print("response from api ",data)
                 return redirect(location='/')
 
     return render_template("index.html")
 
 
 
-@app.route('/signup')
-def signup():
-    data = request.form['userid']
-    return "bmnbn"
+@app.route('/profile')
+def profile():
+    return render_template("profile.html")
+
+
+
+
+# from here
+@app.route('/home')
+def home():
+    return render_template("home.html")
+
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
+# to here 
+
+
 
 
 @app.route('/dashboard')
@@ -72,7 +90,7 @@ def dashboard():
     response = api.get(url=url)
     if response.status_code == 200:
         data = response.json()
-        print("response from api ",data)
+        # print("response from api ",data)
         data_lenght = len(data['response'])
         #split sensor data into its components and find data size or lenght
     
@@ -90,7 +108,7 @@ def notification():
     response = api.get(url=url)
     if response.status_code == 200:
         data = response.json()
-        print("response from api ",data)
+        # print("response from api ",data)
         data_lenght = len(data['response'])
     return render_template("notification.html", notification=data['response'], data_lenght=data_lenght)
 
@@ -110,13 +128,11 @@ def notification_detail(notification_id):
     response = api.post(url=url, json=data)
     if response.status_code == 200:
         data = response.json()
-        print("response from api ",data)
+        # print("response from api ",data)
         data_lenght = len(data['response'])
     return render_template("notification_detail.html", detail=data['response'], data_lenght=data_lenght)
 
 
-# https://www.instagram.com/taila_sky/
-# https://www.linkedin.com/in/%F0%9F%9A%80-taylor-benjamin-997769b9/
 
 @app.route('/ph')
 def ph():
@@ -137,7 +153,7 @@ def ph():
     response = api.get(url, params=params)
     if response.status_code == 200:
         data = response.json()
-        print("response from api ",data)
+        # print("response from api ",data)
         data_lenght = len(data['response'])
     return render_template("ph.html",data=data['response'], data_lenght=data_lenght)
 
@@ -163,7 +179,7 @@ def turbidity():
     response = api.get(url, params=params)
     if response.status_code == 200:
         data = response.json()
-        print("response from api ",data)
+        # print("response from api ",data)
         data_lenght = len(data['response'])
     return render_template("turbidity.html",data=data['response'], data_lenght=data_lenght)
 
@@ -188,7 +204,7 @@ def tds():
     response = api.get(url, params=params)
     if response.status_code == 200:
         data = response.json()
-        print("response from api ",data)
+        # print("response from api ",data)
         data_lenght = len(data['response'])
     return render_template("tds.html",data=data['response'], data_lenght=data_lenght)
 
@@ -213,7 +229,7 @@ def temperature():
     response = api.get(url, params=params)
     if response.status_code == 200:
         data = response.json()
-        print("response from api ",data)
+        # print("response from api ",data)
         data_lenght = len(data['response'])
     return render_template("temperature.html",data=data['response'], data_lenght=data_lenght)
 
@@ -236,7 +252,7 @@ def custom():
     response = api.get(url=url)
     if response.status_code == 200:
         data = response.json()
-        print("response from api ",data)
+        # print("response from api ",data)
         data_lenght = len(data['response'])
     return render_template("custom.html",all_data = data['response'], data_lenght=data_lenght)
 
@@ -251,7 +267,7 @@ def get_graph_data():
     response = api.get(url, params=params)
     if response.status_code == 200:
         data = response.json()
-        print("response from api ",data)
+        # print("response from api ",data)
     return data
 
 
@@ -263,7 +279,7 @@ def all_graph_data():
     response = api.get(url=url)
     if response.status_code == 200:
         data = response.json()
-        print("response from api ",data)
+        # print("response from api ",data)
     return data
 
 
