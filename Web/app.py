@@ -61,9 +61,9 @@ def profile():
 def home():
     return render_template("home.html")
 
-@app.route('/aboute')
-def aboute():
-    return render_template("aboute.html")
+@app.route('/about')
+def about():
+    return render_template("about.html")
 
 @app.route('/contact')
 def contact():
