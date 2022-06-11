@@ -54,6 +54,25 @@ def profile():
     return render_template("profile.html")
 
 
+
+
+# from here
+@app.route('/home')
+def home():
+    return render_template("home.html")
+
+@app.route('/aboute')
+def aboute():
+    return render_template("aboute.html")
+
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
+# to here 
+
+
+
+
 @app.route('/dashboard')
 def dashboard():
     #start a session here
