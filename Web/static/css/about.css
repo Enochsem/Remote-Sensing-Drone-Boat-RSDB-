@@ -85,3 +85,28 @@ header{
   border-radius: 4px;
 
 }
+
+body{
+  background-color: bisque;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;  
+  background: #5a185a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.footer_nav{
+  display: flex;
+  justify-content: right;
+  padding: 10px;
+  list-style: none;
+}
+
+
