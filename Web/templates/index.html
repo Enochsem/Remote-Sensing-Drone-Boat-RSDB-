@@ -1,133 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remote Sensing</title>
-    <link rel="icon" type="image/png" href="../static/images/drone.png">
+    <title>Remote Sensing Drone Boat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='images/drone.png')}}">
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
-        <style>
-            body {
-                height: 100%;
-            }
-    
-            /* html {
-                display: table;
-                margin: auto;
-            }
-    
-            body {
-                display: table-cell;
-                vertical-align: middle;
-                background-image: url('../static/images/bg.webp');
-                background-position: center center;
-                background-repeat: no-repeat;
-            } */
-            header{
-              padding: 20px;
-              background-color: rgb(62, 62, 253);
-            }
-
-            footer{
-              padding: 40px;
-              background-color: rgb(62, 62, 253);
-            }
-
-            body{
-              background-image: url('../static/images/bg.webp');
-              background-position: center center;
-              background-repeat: no-repeat;
-              /* border: red 2px solid; */
-              height: 100%;
-              max-height: 100%;
-              width: 100%;
-              max-width: 100%;
-            }
-        </style>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+
 <body>
-  <header class="text text-center uppercase">Remote Sensing Drone Boat</header>
-    
-  <div class="bl d-flex justify-content-center">
-     <div style="display: table-cell; vertical-align: middle;" class="mt-5">
-      <!-- admin signin Button trigger modal -->
-      <button class=" m-2 btn btn-lg btn-dark" data-toggle="modal" data-target="#userlogin">
-        <i class="fas fa-sign-out-alt"></i> Signin
-      </button>
-      
-        <!-- admin signup Button trigger modal -->
-      <button class=" m-2 btn btn-lg  btn-primary rounded" data-toggle="modal" data-target="#usersignup">
-        <i class="fas fa-sign-in-alt"></i> Signup
-      </button>
-      
-     </div>
-  </div>
-
-    <!-- <footer>
-      <p class="text text-center ">Copyright &copy; protected 2022</p>
-    </footer> -->
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-</body>
-</html>
-
-
-
-<!-- user login Modal -->
-<div class="modal fade" id="userlogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content" >
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Signin</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+    <header>
+        <div class="heading_text">
+            <p>Welcome to the RSDB Homepage &#128512;</p>
+        </div>
+        <ul class="nav">
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </header>
+    <div class="main">
+        <div class="buttons">
+            <div class="sign_in_button" data-toggle="modal" data-target="#userlogin">
+                <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
+                <a href="#"><strong>Sign In</strong></a>
             </div>
-            <form action="" method="post">
-                <div class="modal-body">
-                    <p class="text text-center">Welcome</p>
-                    
+            <div class="sign_up_button" data-toggle="modal" data-target="#usersignup">
+                <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
+                <a href="#"><strong>Sign Up</strong></a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Follow Us</p>
+        <ul class="footer_nav">
+            <li><a href="#">
+                    <img class="facebook" src="{{url_for('static', filename='images/svg/facebook-brands.svg')}}"
+                        alt="Facebook" width="50px" height="40px" />
+                </a>
+            </li>
+            <li><a href="#">
+                    <img class="instagram" src="{{url_for('static', filename='images/svg/instagram-brands (1).svg')}}"
+                        alt="instagram" width="50px" height="40px" />
+                </a>
+            </li>
+            <li><a href="#">
+                    <img class="twitter" src="{{url_for('static', filename='images/svg/twitter-square-brands.svg')}}"
+                        alt="twitter" width="50px" height="40px" />
+                </a>
+            </li>
+            <li><a href="#">
+                    <img class="whatsapp" src="{{url_for('static', filename='images/svg/whatsapp-square-brands.svg')}}"
+                        alt="whatsapp" width="50px" height="40px" />
+                </a>
+            </li>
+        </ul>
+    </footer>
 
-                    <div class="form-col align-items-center mx-3">
-                        
-                        <div class="form-group">
-                          <label class="" for="inlineFormInputGroup">Username</label>
-                          <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- user login Modal -->
+    <div class="modal fade" id="userlogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Signin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="" method="post">
+                    <div class="modal-body">
+                        <p class="text text-center">Welcome</p>
+
+
+                        <div class="form-col align-items-center mx-3">
+
+                            <div class="form-group">
+                                <label class="" for="inlineFormInputGroup">Username</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
+                                    </div>
+                                    <input name="user_id" type="text" class="form-control" id="inlineFormInputGroup"
+                                        placeholder="Enter Username">
+                                </div>
                             </div>
-                            <input name="user_id" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter Username">
-                          </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="" for="inlineFormInputGroup">Password</label>
-                            <div class="input-group mb-2">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fas fa-lock-alt"></i></div>
-                              </div>
-                              <input name="password" type="password" class="form-control" id="inlineFormInputGroup" placeholder="Enter Password">
+                            <div class="form-group">
+                                <label class="" for="inlineFormInputGroup">Password</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-lock-alt"></i></div>
+                                    </div>
+                                    <input name="password" type="password" class="form-control"
+                                        id="inlineFormInputGroup" placeholder="Enter Password">
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- <div class="form-group">
+                            <!-- <div class="form-group">
                           <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" id="autoSizingCheck">
                             <label class="form-check-label" for="autoSizingCheck">
@@ -136,97 +113,112 @@
                           </div>
                         </div> -->
 
-                        
-                      </div>
+
+                        </div>
 
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-decline" data-dismiss="modal">Close</button>
-                    <input name="submit" value="signin" type="submit" class="btn btn-primary">
-                    <!-- <a name="submit" value="signin" href="/dashboard" class="btn btn-md btn-primary btn-acknowledge"
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-decline" data-dismiss="modal">Close</button>
+                        <input name="submit" value="signin" type="submit" class="btn btn-primary">
+                        <!-- <a name="submit" value="signin" href="/dashboard" class="btn btn-md btn-primary btn-acknowledge"
                         type="submit">Signin</a> -->
-                </div>
-            </form>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-
-
-
-
-<!-- user singup Modal -->
-<div class="modal fade" id="usersignup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content" >
-            <div class="modal-header">
-                <h5 class="modal-title text-center " id="exampleModalLabel">Signup</h5>
-                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <!-- user singup Modal -->
+    <div class="modal fade" id="usersignup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center " id="exampleModalLabel">Signup</h5>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button> -->
-            </div>
-            <form action="" method="post">
-                <div class="modal-body">
-                    <p class="text text-center">Welcome </p>
-                    
-
-                    <div class="form-col align-items-center mx-3">
-                        
-                        <div class="form-group">
-                          <label class="" for="inlineFormInputGroup">Username</label>
-                          <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
-                            </div>
-                            <input name="user_id" type="text"  class="form-control" id="" placeholder="Username">
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="" for="inlineFormInputGroup">Device ID</label>
-                            <div class="input-group mb-2">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fas fa-drone"></i></div>
-                              </div>
-                              <input name="device_id" type="text" class="form-control" id="" placeholder="Device ID">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="" for="inlineFormInputGroup">Password</label>
-                            <div class="input-group mb-2">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fas fa-lock-alt"></i></div>
-                              </div>
-                              <input name="password" type="password" class="form-control" id="inlineFormInputGroup" placeholder="Password">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="" for="inlineFormInputGroup"> Confirm Password</label>
-                            <div class="input-group mb-2">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fas fa-lock-alt"></i></div>
-                              </div>
-                              <input name="confirm_password" type="password" class="form-control" id="confirm_password" placeholder="Confirm Password">
-                            </div>
-                        </div>
-
-                        
-                      </div>
-
-
                 </div>
-                <div class="modal-footer">
-                    <div>
-                      <button type="button" class="btn btn-decline" data-dismiss="modal">Cancel</button>
-                    
-                    <input name="submit" value="signup" type="submit" class="btn btn-md btn-primary">
+                <form action="" method="post">
+                    <div class="modal-body">
+                        <p class="text text-center">Welcome </p>
+
+
+                        <div class="form-col align-items-center mx-3">
+
+                            <div class="form-group">
+                                <label class="" for="inlineFormInputGroup">Username</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
+                                    </div>
+                                    <input name="user_id" type="text" class="form-control" id="" placeholder="Username">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="" for="inlineFormInputGroup">Device ID</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-drone"></i></div>
+                                    </div>
+                                    <input name="device_id" type="text" class="form-control" id=""
+                                        placeholder="Device ID">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="" for="inlineFormInputGroup">Password</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-lock-alt"></i></div>
+                                    </div>
+                                    <input name="password" type="password" class="form-control"
+                                        id="inlineFormInputGroup" placeholder="Password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="" for="inlineFormInputGroup"> Confirm Password</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-lock-alt"></i></div>
+                                    </div>
+                                    <input name="confirm_password" type="password" class="form-control"
+                                        id="confirm_password" placeholder="Confirm Password">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
                     </div>
-                </div>
-            </form>
+                    <div class="modal-footer">
+                        <div>
+                            <button type="button" class="btn btn-decline" data-dismiss="modal">Cancel</button>
+
+                            <input name="submit" value="signup" type="submit" class="btn btn-md btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+
+
+</body>
+
+</html>
+
+
+
+<!-- <button class="sign_in_button" data-toggle="modal" data-target="#userlogin">
+    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
+    <a href="#"><strong>Sign In</strong></a>
+</button>
+<button class="sign_up_button" data-toggle="modal" data-target="#usersignup">
+    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
+    <a href="#"><strong>Sign Up</strong></a>
+</button> -->
