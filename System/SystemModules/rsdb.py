@@ -45,6 +45,8 @@ class DroneBoat:
             data_form[index] = self.RAW_DATA[index]
         return data  #return sensor data in map format
     
+
+    # //TODO remove post data from this module into its own
     def postData(self):
         body = self.dataFormat() #final map data  TODO set to final data
         url = f"{BASE_URL}/sensor_readings"
