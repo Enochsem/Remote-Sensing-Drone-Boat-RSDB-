@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% endblock %}
+
+
+
+{% block body %}
+
+<div class="text-primary text-center mb-5">
+    <h4>Profile</h4>
+</div>
+
+    <div class="container d-flex justify-content-center">
+        <div class="card mb-5 " style="overflow: auto; width: 350px;">
+            <div class="card-body">
+                <ul>
+                    <li><h5>Username: {{session.get("user_id")}}</h5></li>
+                    <li><h5>Device ID: {{session.get("device_id")}}</h5></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

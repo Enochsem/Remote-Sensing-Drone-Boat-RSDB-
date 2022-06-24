@@ -1,0 +1,24 @@
+{{session.get("admin_session_id")}}
+
+
+
+DB_data : {
+  Ph: 7,
+  Turbidity: 54,
+  Temperature : 54,
+  TDS: 11 
+}
+
+Threshold : {
+  Ph: 8,
+  Turbidity: 55,
+  Temperature : 55,
+  TDS: 55 
+}
+
+for data in DB_data:
+  for key in Threshold:
+    if data == key:
+     if DB_data[data] >= Threshold[key]:
+      #insert data
+

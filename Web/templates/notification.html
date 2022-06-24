@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% endblock %}
+
+
+
+{% block body %}
+
+<div class="card" style="overflow: auto;">
+    <div class="container-fluid">
+        <div class="card-body">
+            <div class="text-primary text-center text-upper">
+                <h4>Notifications</h4>
+            </div>
+            <div id="tb_rapper">
+                <table id="notification_table" class="display">
+                    <thead>
+                        <tr>
+                            <th>Message</th>
+                            <th>Solution</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <!-- <th>Control</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% if data_lenght > 0 %}
+                        {% for data in range(data_lenght) %}
+                        <tr>
+                            <td>
+                                <a class="text-primary" href="{{url_for('notification_detail', notification_id = notification[data][0])}}">
+                                    {{notification[data][1]}}
+                                </a>
+                            </td>
+                            <td>{{notification[data][2]}}</td>
+                            <td>{{notification[data][4]}}</td>
+                            <td>
+                                {% if notification[data][3] == "1" %}
+                                <span class="text-warning">Pending</span>
+                                {% else %}
+                                <span class="text-success">Read</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
