@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-# import sys
-# sys.path.insert(0, 'c:/Users/Enoch/Desktop/RSDB/Project')
 from flask import Flask, request, jsonify, abort
 from Database.database import Database
 from Database.tables import  createDB
