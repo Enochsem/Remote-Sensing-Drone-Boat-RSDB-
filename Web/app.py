@@ -35,7 +35,7 @@ def index():
             user_id = request.form['user_id']
             device_id = request.form['device_id']
             password = request.form['password']
-            print(user_id, password)
+            # print(user_id, password)
             #post data to api and await response
             url= baseURL+"/register"
             data= {"user_id":user_id, "device_id":device_id, "password":password}
@@ -77,26 +77,15 @@ def contact():
 
 @app.route('/dashboard')
 def dashboard():
-    #start a session here
+    #start a session check
     if not session.get("user_id"):
         return redirect('/')
-    #setting the data from api as null as default value
-    data = ""
     #get session data
     user_id = session.get("user_id")
     device_id = str(session.get("device_id"))
     password = session.get("password")
-    
-    #get data from api
-    url = f"{baseURL}/sensor_data/{device_id}"
-    response = api.get(url=url)
-    if response.status_code == 200:
-        data = response.json()
-        # print("response from api ",data)
-        data_lenght = len(data['response'])
-        #split sensor data into its components and find data size or lenght
-    
-    return render_template("dashboard.html",device_id=device_id, data = data)
+
+    return render_template("dashboard.html")
 
 
 @app.route('/notification')

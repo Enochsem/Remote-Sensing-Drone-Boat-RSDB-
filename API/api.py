@@ -132,8 +132,7 @@ def subscription():
     if status:
         response = database.select_where("notification", "id", data['notification_id'])
         return jsonify({"response":response}) ,200
-        response = "invalid Message ID"
-    return jsonify({"response":response}) ,400
+    return jsonify({"response":"invalid Message ID"}) ,400
 
 
 
@@ -152,22 +151,10 @@ def notify():
     return jsonify({"response":"invalid credentials"}) , 401
 
 
-
-
-def update_client_dashboard():
-    # update client dashboard with useful tips to maintain enhace productivity
-    pass
-
-
 def to_user_json(data):
     return {"id":data[0][0],"user_type":data[0][1],"user_id":data[0][2],"device_id":data[0][3]}
 
 
-#create a json object forset data in sensor type
-
-
-def forgot_password():
-    pass
 
 if __name__ == "__main__":
     app.run(debug=True)

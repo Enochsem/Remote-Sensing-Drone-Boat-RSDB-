@@ -111,21 +111,4 @@ class Database():
         self.connection.commit()
         return True
     
-
-    def create_sensor_table(self,device_id):
-        if device_id != "":
-            sensor_table = f""" CREATE TABLE IF NOT EXISTS {device_id}
-            (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-            sensor_type TEXT NOT NULL, 
-            sensor_reading TEXT NOT NULL, 
-            datetime TIMESTAMP NOT NULL
-            )"""
-            try:
-                self.cursor.execute(sensor_table)
-                self.connection.commit()
-            except self.connection.Error as e:
-                print("SENSOR TABLE ERROR : ",e)
-            finally:
-                if self.connection:
-                    self.connection.close()
                 
