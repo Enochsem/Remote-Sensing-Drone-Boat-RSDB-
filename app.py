@@ -8,8 +8,8 @@ app = Flask(__name__)
 # app secret key is to help identify the current session
 app.secret_key = "@#$%^4535567^%$fghjklkjgfhd@#$%^&*hBGD45"
 
-baseURL = "http://127.0.0.1:5000"
-
+baseURL = "https://rsdbapi.herokuapp.com"
+# http://127.0.0.1:5000
 
 @app.route('/',  methods=['GET','POST'])
 def index():
