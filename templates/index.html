@@ -8,6 +8,8 @@
     <link rel="icon" type="image/png" href="{{url_for('static', filename='images/drone.png')}}">
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -24,11 +26,11 @@
         <div class="buttons">
             <div class="sign_in_button" data-toggle="modal" data-target="#userlogin">
                 <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
-                <a href="#"><strong>Sign In</strong></a>
+                <a ><strong>Sign In</strong></a>
             </div>
             <div class="sign_up_button" data-toggle="modal" data-target="#usersignup">
                 <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
-                <a href="#"><strong>Sign Up</strong></a>
+                <a><strong>Sign Up</strong></a>
             </div>
         </div>
     </div>
@@ -57,11 +59,18 @@
         </ul>
     </footer>
 
-    <!-- jquery cdn -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"crossorigin="anonymous"></script>
+    <!-- page main js -->
+    <!-- <script src="{{url_for('static', filename = 'js/homepage.js')}}"></script> -->
+    <script src="../static/js/homepage.js"></script>
+  <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.all.min.js"></script>
+    
     <!-- bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
 
     <!-- user login Modal -->
     <div class="modal fade" id="userlogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -119,7 +128,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-decline" data-dismiss="modal">Close</button>
-                        <input name="submit" value="signin" type="submit" class="btn btn-primary">
+                        <input id="signin" name="submit" value="signin" type="submit" class="btn btn-primary">
                         <!-- <a name="submit" value="signin" href="/dashboard" class="btn btn-md btn-primary btn-acknowledge"
                         type="submit">Signin</a> -->
                     </div>
@@ -210,14 +219,3 @@
 </body>
 
 </html>
-
-
-
-<!-- <button class="sign_in_button" data-toggle="modal" data-target="#userlogin">
-    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
-    <a href="#"><strong>Sign In</strong></a>
-</button>
-<button class="sign_up_button" data-toggle="modal" data-target="#usersignup">
-    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
-    <a href="#"><strong>Sign Up</strong></a>
-</button> -->
