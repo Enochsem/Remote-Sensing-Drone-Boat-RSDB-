@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-Swal.fire('Any fool can use a computer')
+Swal.fire('Welcome to Remote Sensing')
 });
 
 

@@ -14,10 +14,12 @@
 
 <body>
     <header>
-        <div class="heading_text">
+        <marquee behavior="scroll" scrollmount="1"  scrolldelay="2" direction="down">Welcome to the RSDB Homepage &#128512;</marquee>
+        <!-- <div class="heading_text">
             <p>Welcome to the RSDB Homepage &#128512;</p>
-        </div>
+        </div> -->
         <ul class="nav">
+            <li><a href="#">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
@@ -26,11 +28,11 @@
         <div class="buttons">
             <div class="sign_in_button" data-toggle="modal" data-target="#userlogin">
                 <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
-                <a ><strong>Sign In</strong></a>
+                <a ><strong class="text-light">Sign In</strong></a>
             </div>
             <div class="sign_up_button" data-toggle="modal" data-target="#usersignup">
                 <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
-                <a><strong>Sign Up</strong></a>
+                <a><strong class="text-light">Sign Up</strong></a>
             </div>
         </div>
     </div>
@@ -60,8 +62,8 @@
     </footer>
 
     <!-- page main js -->
-    <!-- <script src="{{url_for('static', filename = 'js/homepage.js')}}"></script> -->
-    <script src="../static/js/homepage.js"></script>
+    <script src="{{url_for('static', filename = 'js/homepage.js')}}"></script>
+    <!-- <script src="../static/js/homepage.js"></script> -->
   <!-- Sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.all.min.js"></script>
     

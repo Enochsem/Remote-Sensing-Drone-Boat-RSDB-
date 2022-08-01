@@ -5,16 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title>RSDB</title>
-
     {% block headscript %}
 
     {% endblock %}
-
-    <link rel="icon" type="image/png" href="../static/images/drone.png">
-
-    
+    <link rel="icon" type="image/png" href="{{url_for('static', filename = 'images/drone.png')}}"> 
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -48,7 +43,7 @@
         <nav id="sidebar">
             <div class="sidebar-header border m-1 p-2 pt-3 text-center bg-primary">
                 <!-- <center> <i class="fas fa-coins fa-3x text-center"></i></center> -->
-                <center><img src="../static/images/svg/drone.svg" alt=""></center>
+                <img src="../static/images/svg/drone.svg" alt="">
                 <h5>Remote Sensing</h5>
                 <strong>RS</strong>
             </div>
@@ -94,18 +89,6 @@
                     </a>
                 </li>
 
-                <!-- <li class="nav-item dropdown dropright">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-users" aria-hidden="true"></i>
-                        Agent
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item sidebar_dropdown_item" href="/register_agent">Add Agent</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item sidebar_dropdown_item" href="/manage_agent">Manage Agent</a>
-                    </div>
-                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#admin_logout">
                         <i class="fas fa-sign-out-alt"></i>
@@ -154,11 +137,11 @@
 
                 {% endblock %}
                 <button id="floating_button" class="btn btn-lg btn-primary rounded-circle"><i class="fa fa-bars" aria-hidden="true"></i></button>
-                <!-- <div class="text-center p-2  text-secondary mt-3" style="position: absolute; bottom: 0;right: 0;">
-                    <small>Copyright&copy; 2022 Protected</small>
-                </div> -->
             </div>
 
+            <div class="text-center p-2  text-secondary mt-3" style="position: absolute; bottom: 0;right: 20px;">
+                <small>Copyright&copy; RSDB 2022</small>
+            </div>
 
         </div>
     </div>
@@ -173,9 +156,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.all.min.js"></script>
 
 
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
