@@ -17,17 +17,17 @@ current_datetime = datetime.now()
 
 
 
-@auth.verify_password
-def authenticate(user_id, password):
-    if user_id and password:
-        database = Database()
-        user_data, user_exist = database.signin(user_id, password)
-        if user_exist:
-            return jsonify(to_user_json(user_data)) , 200
-        else:
-            return False
-    else:
-        return False
+# @auth.verify_password
+# def authenticate(user_id, password):
+#     if user_id and password:
+#         database = Database()
+#         user_data, user_exist = database.signin(user_id, password)
+#         if user_exist:
+#             return jsonify(to_user_json(user_data)) , 200
+#         else:
+#             return False
+#     else:
+#         return False
 
 
 
@@ -38,7 +38,7 @@ def authenticate(user_id, password):
 
  
 @app.route("/", methods=['GET'])
-@auth.login_required
+# @auth.login_required
 def index():
     return jsonify({'welcome':"Remote Sensing Drone Boat"}), 200
 
