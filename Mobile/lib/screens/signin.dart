@@ -77,7 +77,7 @@ class _LoginState extends State<Login> {
             titleText("Sign in", size: 30.0),
             
             Image.asset(
-              "images/drone.png",
+              "images/icon.png",
               height: 300.0,
             ),
             Form(

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rsdb/screens/dashboard.dart';
+import 'package:rsdb/screens/signup.dart';
+import 'package:rsdb/screens/signin.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +16,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: "/signup",
+      routes :{
+        "/signup" : (context) => const Signup(),
+        "/login" : (context) => const Login(),
+        "/dashboard" : (context) => const Dashboard(),
+        "/notification" : (context) => const Login(),
+        "/report" : (context) => const Login(),
+
+      }
     );
   }
 }
