@@ -1,7 +1,7 @@
 
-$(document).ready(function(){
-Swal.fire('Welcome to Remote Sensing')
-});
+// $(document).ready(function(){
+// Swal.fire('Welcome to Remote Sensing')
+// });
 
 
 
