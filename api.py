@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from flask import Flask, request, jsonify, abort
-from flask_httpauth import HTTPBasicAuth
+# from flask_httpauth import HTTPBasicAuth
 from Database.database import Database
 from Database.tables import  createDB
 from Modules.user import User
@@ -10,7 +10,7 @@ from datetime import datetime
 
 
 app = Flask(__name__)
-auth = HTTPBasicAuth()
+# auth = HTTPBasicAuth()
 
 
 current_datetime = datetime.now()
@@ -37,7 +37,7 @@ current_datetime = datetime.now()
 #         abort(400) 
 
  
-@app.route("/", methods=['GET'])
+@app.route("/")
 # @auth.login_required
 def index():
     return jsonify({'welcome':"Remote Sensing Drone Boat"}), 200
