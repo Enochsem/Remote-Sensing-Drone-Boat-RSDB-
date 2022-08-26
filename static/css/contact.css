@@ -1,10 +1,13 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 *{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: sans-serif;
-  }
-  
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: Raleway-SemiBold;
+  --background_color:#5a185a;
+}
+
 header{
     width: 100%;
     height: 100px;
@@ -95,35 +98,32 @@ header{
    
 }
 
-.Enoch{
-    border: 1px solid black;
-    border-radius: 30%;
-    display: flex;
-    justify-content: center;
-    background-color: rgb(202, 169, 118);
-    box-shadow: 20px;
-    width: 380px;
-    height:390px;
-    padding: 15px;
-    
-}
-
-.Ann{
-    border: 1px solid black;
-    border-radius: 30%;
-    display: flex;
-    justify-content: center;
-    padding: 15px;
-    background-color:rgb(202, 169, 118);
-    width: 380px;
-    height:390px;
-   
-
+.details_E{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  /* width: 380px;
+  height:390px;
+  padding: 15px; */
   
 }
 
+.details_A{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 30%;
+}
+
 body {
-  background-color: bisque;
+  background-color: ;
+}
+
+.main{
+  width: 100%;
+  background-image: url("../images/bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 80vh;
 }
 
 

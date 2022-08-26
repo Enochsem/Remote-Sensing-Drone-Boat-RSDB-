@@ -5,9 +5,9 @@
     padding: 0;
 } */
 :root{
-    --background_color:#007bff;
+    --background_color:#5a185a;
     /* --bg: linear-gradient(rgb(24, 179, 240), rgb(16, 156, 250),rgb(18, 87, 235), rgb(91, 31, 230),rgb(89, 24, 241)); */
-    --bg: #007bff;
+    --bg: #5a185a;
 }
 
 /* === Custom Default Element === */
@@ -21,14 +21,14 @@
     border: 2px solid rgba(237, 238, 240, 0.75);
     border-radius: 40px;
     /* background: transparent; */
-    background: rgb(59, 2, 190);
+    background: #5a185a;
     transition: all 0.3s ease 0s;
   }
 
   .btn-acknowledge:hover {
     color: #FFF;
-    background: rgba(14, 98, 253, 0.75);
-    border: 2px solid rgba(5, 57, 153, 0.75);
+    background: #5a185a;
+    border: 2px solid #5a185a;
   }
 
 
@@ -278,10 +278,10 @@ ul ul a {
   }
 
   .borderLeft{
-      border-left: 3px solid rgb(25, 25, 230);
+      border-left: 3px solid #5a185a;
   }
   .borderbottom{
-    border-bottom: 3px solid rgb(25, 25, 230);
+    border-bottom: 3px solid #5a185a;
 }
 
 

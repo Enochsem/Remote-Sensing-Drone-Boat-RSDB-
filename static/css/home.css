@@ -1,8 +1,11 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 *{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: Raleway-SemiBold;
+  --background_color:#5a185a;
 }
 
 header{
