@@ -83,7 +83,7 @@ header{
 
 .nav li:hover{
   cursor: pointer;
-  background-color: black;
+  transform: translate(2px,2px);
   border-radius: 4px;
 
 }
@@ -147,12 +147,15 @@ body{
   background-color: rgba(0, 0, 0, 0.993);
   /* padding: 6px; */
   transform: translate(2px,2px);
+  cursor: pointer;
+
 }
 
 .sign_up_button:hover{
   background-color: rgb(29, 95, 95);
   /* padding: 6px; */
   transform: translate(2px,2px);
+  cursor: pointer;
 
 }
 footer{
