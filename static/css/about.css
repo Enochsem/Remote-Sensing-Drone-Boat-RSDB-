@@ -84,7 +84,7 @@ header{
 
 .nav li:hover{
   cursor: pointer;
-  background-color: black;
+  transform: translate(2px,2px);
   border-radius: 4px;
 
 }
