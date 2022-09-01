@@ -90,7 +90,7 @@ header{
   }
   
 
-  .details{
+  .contact{
     display: flex;
     /* justify-content: space-around; */
     font-size: 1.2rem;
@@ -99,7 +99,7 @@ header{
    
   }
   
-  .details_E,.details_A{
+  .contact1,.contact2{
     /* display: flex; */
     /* flex-direction: row; */
     align-items: center;
@@ -113,12 +113,12 @@ header{
   
   }
   
-  .details_E{
+  .contact1{
     box-shadow: 0 15px 15px blue;
     border: 2px solid blue;
   }
   
-  .details_A{
+  .contact2{
     box-shadow: 0 15px 15px palevioletred;
     border: 2px solid palevioletred;
   }
@@ -160,7 +160,7 @@ footer{
 
 @media (max-width: 760px){
 
-  .details{
+  .contact{
     display: flex;
     flex-direction: column;
     /* justify-content: space-around; */
@@ -170,7 +170,7 @@ footer{
    
   }
   
-  .details_E,.details_A{
+  .contact1,.contact2{
     /* display: flex; */
     /* flex-direction: column; */
     align-items: center;
