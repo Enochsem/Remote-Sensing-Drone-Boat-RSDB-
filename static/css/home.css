@@ -67,6 +67,12 @@ header{
   color: aliceblue;
 }
 
+.nav_current{
+  font-size: 25px;
+  color: #5a185a;
+
+}
+
 .nav li{
   padding: 5px;
   height: 24px;

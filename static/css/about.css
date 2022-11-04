@@ -68,6 +68,12 @@ header{
   color: aliceblue;
 }
 
+.nav_current{
+  font-size: 25px;
+  color: #5a185a;
+
+}
+
 .nav li{
   padding: 5px;
   height: 24px;
@@ -92,6 +98,14 @@ header{
 /* body{
   background-color: bisque;
 } */
+
+
+.container_1{
+  height: 30px;
+  box-shadow: 0 15px 15px gray;
+  border: 2px gray;
+
+}
 
 footer{
   position: absolute;
