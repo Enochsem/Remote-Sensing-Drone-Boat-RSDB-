@@ -14,7 +14,7 @@ header{
   background-color: #5a185a;
   color: aliceblue;
 }
-
+ 
 .heading_text{
   padding: 2px;
   font-weight: bold;
@@ -55,6 +55,7 @@ header{
     transform: translateX(-100%);
   } 
 } 
+
 
 .nav{
   display: flex;
