@@ -25,7 +25,7 @@ header{
 .nav{
   display: flex;
   justify-content: right;
-  font-size: 28px;
+  font-size: 24px;
   list-style: none;
   padding-right: 10%;
   padding-top: 1%;
@@ -59,7 +59,7 @@ color: black;
 
 .heading_text{
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   margin: 4px 0;
   text-align: center;
   text-transform: uppercase;
@@ -68,7 +68,7 @@ color: black;
 
 .main{
   width: 70%;
-  height: 72vh;
+  height: 65vh;
   background: rgba(255, 255, 255, 0.329);
   margin: 25px auto;
   border-radius: 10px;

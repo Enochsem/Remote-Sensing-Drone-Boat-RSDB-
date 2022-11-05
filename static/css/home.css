@@ -24,7 +24,7 @@ header{
 .nav{
   display: flex;
   justify-content: right;
-  font-size: 28px;
+  font-size: 25px;
   list-style: none;
   padding-right: 10%;
   padding-top: 1%;
@@ -57,7 +57,7 @@ color: black;
 
 .heading_text{
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   margin: 4px 0;
   text-align: center;
   text-transform: uppercase;
@@ -70,7 +70,7 @@ color: black;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; */
-  height: 69vh;
+  height: 65vh;
   background: rgba(255, 255, 255, 0.329);
   margin: 25px auto;
   border-radius: 10px;
@@ -140,7 +140,7 @@ footer{
   
 .main .buttons{
   display: grid;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding-top: 15%;
   padding-right: 45%;
 }
@@ -161,7 +161,7 @@ footer{
 }
 
 .nav{
-  font-size: 0.8rem; 
+  font-size: 0.6rem; 
 }
 
 }
