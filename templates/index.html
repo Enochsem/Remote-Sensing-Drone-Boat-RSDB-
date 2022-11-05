@@ -15,28 +15,31 @@
 <body>
     <header>
         <!-- <marquee behavior="scroll" scrollmount="1"  scrolldelay="4" direction="right" >Welcome to the RSDB Homepage &#128512;</marquee> -->
-        <div class="heading_text">
-            <p>Welcome to the RSDB Homepage &#128512;</p>
-        </div>
         <ul class="nav">
             <li class ="nav_current"><a href="#">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
+        <div class="heading_text">
+            <p>Welcome to the RSDB Homepage </p>
+            
+        </div>
     </header>
-    <div class="main">
-        <div class="buttons">
-            <div class="sign_in_button" data-toggle="modal" data-target="#userlogin">
-                <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
-                <a ><strong class="text-light">Sign In</strong></a>
-            </div>
-            <div class="sign_up_button" data-toggle="modal" data-target="#usersignup">
-                <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
-                <a><strong class="text-light">Sign Up</strong></a>
+        <div class="main">
+            <div class="buttons">
+                <div class="sign_in_button" data-toggle="modal" data-target="#userlogin">
+                    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
+                    <a ><strong class="text-light">Sign In</strong></a>
+                </div>
+                <div class="sign_up_button" data-toggle="modal" data-target="#usersignup">
+                    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
+                    <a><strong class="text-light">Sign Up</strong></a>
+                </div>
             </div>
         </div>
-    </div>
     <footer>
+        <p><h2 style="font-size: 1.4rem; color: black; font-weight: bold;">This is the official website to access your RSDB devices , get data and contact the team incase of any issues
+        </h2></p>
         <ul class="footer_nav">
             <li><a href="#">
                     <img class="facebook" src="{{url_for('static', filename='images/svg/facebook-brands.svg')}}"
@@ -60,6 +63,7 @@
             </li>
         </ul>
     </footer>
+
 
     <!-- page main js -->
     <script src="{{url_for('static', filename = 'js/homepage.js')}}"></script>
