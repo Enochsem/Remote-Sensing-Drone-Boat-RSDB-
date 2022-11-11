@@ -14,55 +14,57 @@
 
 <body>
     <header>
-        <!-- <marquee behavior="scroll" scrollmount="1"  scrolldelay="4" direction="right" >Welcome to the RSDB Homepage &#128512;</marquee> -->
-        <ul class="nav">
-            <li class ="nav_current"><a href="#">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-        <div class="heading_text">
-            <p>Welcome to the RSDB Homepage </p>
-            
-        </div>
-    </header>
-        <div class="main">
-            <div class="buttons">
-                <div class="sign_in_button" data-toggle="modal" data-target="#userlogin">
-                    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
-                    <a ><strong class="text-light">Sign In</strong></a>
+        <div class = "navbar">
+            <div class="logo">
+                <div class="logo_image">
+                    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="42px" width="40px">
                 </div>
-                <div class="sign_up_button" data-toggle="modal" data-target="#usersignup">
+                <p class="logo_text">RSDB</p>
+            </div>
+            <div class="buttons">
+                <div class="login" data-toggle="modal" data-target="#userlogin">
                     <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
-                    <a><strong class="text-light">Sign Up</strong></a>
+                    <a ><strong>Login</strong></a>
+                </div>
+                <div class="register" data-toggle="modal" data-target="#usersignup">
+                    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px" >
+                    <a><strong>Register</strong></a>
                 </div>
             </div>
         </div>
-    <footer>
-        <p><h2 style="font-size: 1.4rem; color: black; font-weight: bold;">This is the official website to access your RSDB devices , get data and contact the team incase of any issues
-        </h2></p>
-        <ul class="footer_nav">
-            <li><a href="#">
-                    <img class="facebook" src="{{url_for('static', filename='images/svg/facebook-brands.svg')}}"
-                        alt="Facebook" width="50px" height="40px" />
-                </a>
-            </li>
-            <li><a href="#">
-                    <img class="instagram" src="{{url_for('static', filename='images/svg/instagram-brands (1).svg')}}"
-                        alt="instagram" width="50px" height="40px" />
-                </a>
-            </li>
-            <li><a href="#">
-                    <img class="twitter" src="{{url_for('static', filename='images/svg/twitter-square-brands.svg')}}"
-                        alt="twitter" width="50px" height="40px" />
-                </a>
-            </li>
-            <li><a href="#">
-                    <img class="whatsapp" src="{{url_for('static', filename='images/svg/whatsapp-square-brands.svg')}}"
-                        alt="whatsapp" width="50px" height="40px" />
-                </a>
-            </li>
-        </ul>
-    </footer>
+    </header>
+    <div class="toptext">
+        <h1>Mobile Water Quality Monitoring Made Easier</h1>
+    </div>
+    <div class="shapes">
+        <div class="shape1">
+        </div>
+        <div class="shape2">
+            <div class="shape22">
+            </div>
+        </div>
+    </div>
+    <div class="screenshot">
+    </div>
+    <br>
+    <div class="function_block">
+        <h3 class="function_heading">PURPOSE OF RSDB</h3>
+        <div class="function_list">
+            <div class="function_1">
+                <span class="numbers">1</span> 
+                To measure some physiochemical properties of water - pH, turbidity,temperature,electrical conductivity - suitable for aquaculture.</div>
+            <div class="function_2">
+                <span class="numbers">2</span> 
+                To provide real-time analysis of the sensor data and recommend appropriate corrective measures.</div>
+            <div class="function_3">
+                <span class="numbers">3</span> 
+                To be able to carry out water quality analysis at remote locations</div>
+            <div class="function_4">
+                <span class="numbers">4</span> 
+                To design a mobile and low cost water quality checker.</div>
+        </div>
+    </div>
+   
 
 
     <!-- page main js -->
@@ -221,6 +223,10 @@
         </div>
     </div>
 
+    <footer>
+        <p class="foot">RSDB</p>
+        <p class="foot">Copyright 2022 by IOT Devlab</p>
+    </footer>
 
 </body>
 
