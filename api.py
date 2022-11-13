@@ -80,7 +80,7 @@ def sensor_data(device_id):
 @app.route("/sensor_readings", methods=['POST'])
 def post_sensor_readings():
     #receive data from device and insert into db
-    data = request.get_json()
+    data = request.get_json() #Currently Data is recieved for a sensor and data at a time
     database = Database()
     device_sensor = DeviceSensor(data["device_id"], data["sensor_type"], data["sensor_reading"])
     status = database.insert_readings(device_sensor)

@@ -93,8 +93,9 @@ notify_query= """ INSERT INTO notification(message,solution,status)VALUES(?,?,?)
 # collected_date TEXT DEFAULT CURRENT_DATE
 
 if __name__ == "__main__":
-    createDB()
-    default_data(users, users_query)
-    default_data(devices, devices_query)
-    default_data(sensor, sensors_query)
-    default_data(notify, notify_query)
+    # createDB()
+    # default_data(users, users_query)
+    # default_data(devices, devices_query)
+    # default_data(sensor, sensors_query)
+    # default_data(notify, notify_query)
+    print("hello")
