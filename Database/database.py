@@ -88,7 +88,7 @@ class Database():
         if ismanufactured:
             return isregistered     #returns T/F
         else:
-            return not ismanufactured #returns false
+            return ismanufactured #returns false
 
 
     def update_subscription(self,subscription_type,device_id):

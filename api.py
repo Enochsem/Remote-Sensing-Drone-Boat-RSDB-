@@ -52,11 +52,11 @@ def get_sensor_data():
     device_id = request.args.get("device_id")
     #you can perform an authentication 
     sensor_type = request.args.get("sensor_type")
-    # print("data here1 : ",sensor_type)
+    print("data here1 : ",sensor_type)
     database = Database()
     #query database and return Specific data
     response = database.select_where(table_name, column_name, sensor_type) 
-    # print(response, "data type ", type(response))
+    print(response, "data type ", type(response))
     if len(response) < 0:
         response = "No readings from sensor yet"
         return jsonify({"Error":response}), 301
@@ -69,11 +69,13 @@ def sensor_data(device_id):
     table_name = "sensors"
     #query database and return all data
     database = Database()
-    response = database.select(table_name)
-    if len(response) < 0:
-        response = "Device Has Not Taking any Readings"
-        return jsonify({"Error":response}), 301
-    return jsonify({"response":response}) , 200
+    if database.check_device_id(device_id):
+        response = database.select(table_name)
+        if len(response) < 0:
+            response = "Device Has Not Taking any Readings"
+        return jsonify({"response":response}) , 200
+    return jsonify({"Error":"Invalid Device ID"}), 301
+    
 
 
 #RECEIVE ALL THE SENSOR READING AS ONE JSON OBJECT
