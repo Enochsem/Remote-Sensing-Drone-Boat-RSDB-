@@ -300,11 +300,12 @@ function getdate () {
 
 var graph_date = getdate();
 
-// load data from api on ajax call
-const baseURL = "http://127.0.0.1:5000"
+
+// load data from api on ajax call (not been used now)
+const baseURL = "http://127.0.0.1:5001"
 
 
-
+// fetch combo graph data
 $(document).ready(function(){
     console.log(baseURL+"hehe");
     device_id = $("#device_id").val();
@@ -315,6 +316,7 @@ $(document).ready(function(){
       success: (data) => {
         console.log("checking " + data['response'][0][3]);
         var graph_data =  data['response'];
+        // wiil change data return type to list of maps (json object)
         for (let index = 0; index < graph_data.length; index++) {
             if (graph_data[index][2]=="Ph") {
                 ph_sensor.push({x:graph_data[index][4], y:graph_data[index][3]});
@@ -349,6 +351,7 @@ $(document).ready(function(){
 
 
 // Shijou Saikyou no Daimaou, Murabito A ni Tensei suru Episode 9 English Subbed at gogoanime
+
 function plot_graph(sensor_type, chart, coordinates){
     device_id = $("#device_id").val();
     $.ajax({
@@ -357,6 +360,7 @@ function plot_graph(sensor_type, chart, coordinates){
         data: {'device_id': device_id, 'sensor_type': sensor_type },
         success: (data) => {
           graph_data =  data['response'];
+            // wiil change data return type to list of maps (json object)
           for (let index = 0; index < graph_data.length; index++) {
             coordinates.push({x:graph_data[index][4], y:graph_data[index][3]}, {x:'green',y:54});
           }
