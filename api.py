@@ -14,6 +14,9 @@ app = Flask(__name__)
 
 
 current_datetime = datetime.now()
+sensorKey = ['id','device_id','sensor','value','date']
+notificationeys=["id","message","device_id","status","date"]
+
 
 
 
@@ -41,59 +44,6 @@ current_datetime = datetime.now()
 # @auth.login_required
 def index():
     return jsonify({'welcome':"Remote Sensing Drone Boat"}), 200
-
-
-#SEND Specific READINGS TO CONNECTED DEVICES
-# requesting data on one sensors only eg:PH
-@app.route("/sensor_data", methods=['GET'])
-def get_sensor_data():
-    column_name = "sensor_type"
-    table_name = "sensors"
-    device_id = request.args.get("device_id")
-    #you can perform an authentication 
-    sensor_type = request.args.get("sensor_type")
-    print("data here1 : ",sensor_type)
-    database = Database()
-    #query database and return Specific data
-    response = database.select_where(table_name, column_name, sensor_type) 
-    print(response, "data type ", type(response))
-    if len(response) < 0:
-        response = "No readings from sensor yet"
-        return jsonify({"Error":response}), 301
-    return jsonify({"response": response}), 200 
-
-
-#SEND All READINGS TO CONNECTED DEVICES
-@app.route("/sensor_data/<string:device_id>", methods=['GET'])
-def sensor_data(device_id):
-    table_name = "sensors"
-    column_name = "device_id"
-    sensorKey = ['id','device_id','sensor','value','date']
-    #query database and return all data
-    database = Database()
-    if database.check_device_id(device_id):
-        data = database.select_where(table_name, column_name, device_id)
-        response = dbToJson(sensorKey, data)
-        if len(response) < 0:
-            response = "Device Has Not Taking any Readings"
-        return jsonify({"response":response}) , 200
-    return jsonify({"Error":"Invalid Device ID"}), 301
-    
-
-#RECEIVE ALL THE SENSOR READING AS ONE JSON OBJECT
-@app.route("/sensor_readings/<string:device_id>", methods=['POST']) 
-def post_sensor_readings(device_id):
-    #receive data from device and insert into db
-    data = request.get_json() 
-    if database.check_device_id(device_id):
-        print("raw",data)
-        database = Database()
-        deviceSensor = DeviceSensor()
-        database.insert_all_sensor_readings(deviceSensor.toTuple(data, device_id))
-        return jsonify({"response":"Received"}) , 201
-    #check the thresholds here and insert them into a notification table
-    deviceSensor.checkThreshold(data)
-    return jsonify({"response":"Invalid Request"}) , 401
 
 
 @app.route('/login', methods=['POST'])
@@ -128,19 +78,75 @@ def register():
     return jsonify({"response":"invalid credentials"}) , 401
 
 
+#SEND Specific READINGS TO CONNECTED DEVICES
+# requesting data on one sensors only eg:PH
+@app.route("/sensor_data", methods=['GET'])
+def get_sensor_data():
+    column_name = "sensor_type"
+    table_name = "sensors"
+    data = request.get_json() 
+    device_id = data["device_id"]
+    #you can perform an authentication 
+    sensor_type = data["sensor_type"]
+    print("data here1 : ",sensor_type)
+    database = Database()
+    #query database and return Specific data (where device id is)
+    # response = database.select_where(table_name, column_name, sensor_type) 
+    single_sensorData = database.select_where2(table_name, "sensor_type", sensor_type, "device_id", device_id)
+    response = dbToJson(sensorKey, single_sensorData)
+    print(response, "data type ", type(response))
+    if len(response) < 0:
+        response = "No readings from sensor yet"
+        return jsonify({"Error":response}), 301
+    return jsonify({"response": response}), 200 
+
+
+#SEND All READINGS TO CONNECTED DEVICES
+@app.route("/sensor_data/<string:device_id>", methods=['GET'])
+def sensor_data(device_id):
+    table_name = "sensors"
+    column_name = "device_id"
+
+    #query database and return all data
+    database = Database()
+    if database.check_device_id(device_id):
+        data = database.select_where(table_name, column_name, device_id)
+        response = dbToJson(sensorKey, data)
+        if len(response) < 0:
+            response = "Device Has Not Taking any Readings"
+        return jsonify({"response":response}) , 200
+    return jsonify({"Error":"Invalid Device ID"}), 301
+    
+
+#RECEIVE ALL THE SENSOR READING AS ONE JSON OBJECT
+@app.route("/sensor_readings/<string:device_id>", methods=['POST']) 
+def post_sensor_readings(device_id):
+    #receive data from device and insert into db
+    database = Database()
+    deviceSensor = DeviceSensor()
+    data = request.get_json() 
+    if database.check_device_id(device_id):
+        print("raw",data)
+        database.insert_all_sensor_readings(deviceSensor.toTuple(data, device_id))
+        return jsonify({"response":"Received"}) , 201
+    #check the thresholds here and insert them into a notification table
+    deviceSensor.checkThreshold(data)
+    return jsonify({"response":"Invalid Request"}) , 401
+
+
 @app.route('/notification_detail', methods=['POST'])
-def subscription():
+def notification_detail():
     #update notification status to -1 
     data = request.get_json()
     device_id = data['device_id']
-    
+    notification_id = data['notification_id']
     database = Database()
-    status = database.update("notification", "status", "id", "-1", data["notification_id"])
+    status = database.update_where2("notification", "status", "-1", "device_id", device_id, "id", notification_id)
     if status:
-        response = database.select_where("notification", "id", data['notification_id'])
+        notification_data = database.select_where2("notification", "id", notification_id, "device_id", device_id)
+        response = dbToJson(notificationeys, notification_data)
         return jsonify({"response":response}) ,200
     return jsonify({"response":"invalid Message ID"}) ,400
-
 
 
 @app.route("/notify/<string:device_id>", methods=['GET'])
@@ -150,8 +156,9 @@ def notify(device_id):
     database = Database()
     if database.check_device_id(device_id):
         data = database.select_where(table_name, column_name, device_id)
+        response = dbToJson(notificationeys, data)
         if len(data) > 0:
-            return jsonify({"response":data}) , 200
+            return jsonify({"response":response}) , 200
     return jsonify({"response":"invalid credentials"}) , 401
 
 
