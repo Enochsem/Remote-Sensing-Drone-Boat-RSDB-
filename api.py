@@ -67,45 +67,33 @@ def get_sensor_data():
 @app.route("/sensor_data/<string:device_id>", methods=['GET'])
 def sensor_data(device_id):
     table_name = "sensors"
+    column_name = "device_id"
+    sensorKey = ['id','device_id','sensor','value','date']
     #query database and return all data
     database = Database()
     if database.check_device_id(device_id):
-        response = database.select(table_name)
+        data = database.select_where(table_name, column_name, device_id)
+        response = dbToJson(sensorKey, data)
         if len(response) < 0:
             response = "Device Has Not Taking any Readings"
         return jsonify({"response":response}) , 200
     return jsonify({"Error":"Invalid Device ID"}), 301
     
 
-
 #RECEIVE ALL THE SENSOR READING AS ONE JSON OBJECT
-@app.route("/sensor_readings", methods=['POST'])
-def post_sensor_readings():
+@app.route("/sensor_readings/<string:device_id>", methods=['POST']) 
+def post_sensor_readings(device_id):
     #receive data from device and insert into db
-    data = request.get_json() #Currently Data is recieved for a sensor and data at a time
-    database = Database()
-    device_sensor = DeviceSensor(data["device_id"], data["sensor_type"], data["sensor_reading"])
-    status = database.insert_readings(device_sensor)
-    if status:
-        return jsonify({"response":"received"}) , 201
-        
+    data = request.get_json() 
+    if database.check_device_id(device_id):
+        print("raw",data)
+        database = Database()
+        deviceSensor = DeviceSensor()
+        database.insert_all_sensor_readings(deviceSensor.toTuple(data, device_id))
+        return jsonify({"response":"Received"}) , 201
     #check the thresholds here and insert them into a notification table
-    # add low tresholds eg: Ph levels below 6 etc
-    Threshold = {
-    Ph: 8,
-    Turbidity: 150,
-    Temperature : 32,
-    TDS: 400 
-    }
-
-    for d in data['data']:
-        for key in Threshold:
-            if d == key:
-                if data['data'][d] >= Threshold[key]:
-                    #insert data 
-                    status = database.insert("notification", f"Threshold of {Threshold[key]} reach for {key}", "solution", "1")
-    
-    return jsonify({"response":"Invalid"}) , 401
+    deviceSensor.checkThreshold(data)
+    return jsonify({"response":"Invalid Request"}) , 401
 
 
 @app.route('/login', methods=['POST'])
@@ -155,24 +143,27 @@ def subscription():
 
 
 
-@app.route("/notify", methods=['GET'])
-def notify():
-    ph_threshold = 8
-    turbidity_threshold = 0
-    tds_threshold = 0
-    temperature = 0
-
+@app.route("/notify/<string:device_id>", methods=['GET'])
+def notify(device_id):
     table_name = "notification"
+    column_name = "device_id"
     database = Database()
-    data = database.select(table_name)
-    if len(data) > 0:
-        return jsonify({"response":data}) , 200
+    if database.check_device_id(device_id):
+        data = database.select_where(table_name, column_name, device_id)
+        if len(data) > 0:
+            return jsonify({"response":data}) , 200
     return jsonify({"response":"invalid credentials"}) , 401
 
 
 def to_user_json(data):
     return {"id":data[0][0],"user_type":data[0][1],"user_id":data[0][2],"device_id":data[0][3]}
 
+def sensorObject(sensorData):
+    sensorKey = ['id','device_id','sensor','value','date']
+    return [dict(zip(sensorKey, data)) for data in sensorData]
+
+def dbToJson(keyList,listOfTuple):
+    return [dict(zip(keyList, data)) for data in listOfTuple]
 
 
 if __name__ == "__main__":
