@@ -16,7 +16,7 @@ class DeviceSensor():
 
 
     def toTuple(self,data, device_id):
-        return [(device_id,sensor_type,sensor_reading) for sensor_type, sensor_reading in data.items()]    
+        return [(device_id,sensor_type,str(sensor_reading)) for sensor_type, sensor_reading in data.items()]    
 
     
     def checkThreshold (self,json_data,device_id):

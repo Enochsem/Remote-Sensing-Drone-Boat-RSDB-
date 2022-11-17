@@ -78,6 +78,10 @@ class Database():
         data = self.cursor.fetchall()
         return data
 
+    def select_where2(self,table_name,whereColumn1,whereData1,whereColumn2,whereData2):
+        self.cursor.execute(f"SELECT * FROM {table_name} WHERE {whereColumn1}=? AND {whereColumn2}=?", (whereData1,whereData2))
+        data = self.cursor.fetchall()
+        return data
 
     def ispresent(self,table_name,column_name,data):
         self.cursor.execute(f"SELECT * FROM {table_name} WHERE {column_name}=?", (data,))
@@ -107,6 +111,11 @@ class Database():
         self.cursor.execute(f"UPDATE {table_name} SET {column_name}=? WHERE {where_column}=?", (update_data,column_id))
         self.connection.commit()
         return True
+
+    def update_where2(self, table_name, setColumn_name, setUpdate_data, where_columnID1, wColumn_id1, where_columnID2, wColumn_id2):
+        self.cursor.execute(f"UPDATE {table_name} SET {setColumn_name}=? WHERE {where_columnID1}=? AND {where_columnID2}=?", (setUpdate_data,wColumn_id1, wColumn_id2))
+        self.connection.commit()
+        return True    
 
     def delete_one(self,table_name,column_name,data_id):
         self.cursor.execute(f"DELETE FROM {table_name} WHERE {column_name}=?", (data_id,))
