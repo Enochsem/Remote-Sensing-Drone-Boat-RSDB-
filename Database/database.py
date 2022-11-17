@@ -45,12 +45,19 @@ class Database():
 
     def insert_readings(self,sensor_data):
         sensor = sensor_data
-        #insert data from the sensors
+        #insert data from the sensors (one data at a time)
         self.cursor.execute(f"INSERT INTO {self.SENSOR_TABLE}('device_id','sensor_type','sensor_reading','datetime')VALUES(?,?,?,?)",
         (sensor.device_id, sensor.sensor_type,sensor.reading,current_datetime))
         self.connection.commit()
         return True
         
+    
+    def insert_all_sensor_readings(self,data):
+        query = "INSERT INTO sensors(device_id,sensor_type,sensor_reading)VALUES(?,?,?)"
+        self.cursor.executemany(query, data)
+        self.connection.commit()
+        return True
+      
     
     def insert(self,table,message, solution,status):
         sensor = sensor_data
