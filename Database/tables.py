@@ -40,7 +40,7 @@ datetime DATETIME DEFAULT CURRENT_TIMESTAMP
 notification_table = """CREATE TABLE IF NOT EXISTS notification(
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
 message TEXT NOT NULL,
-solution TEXT NOT NULL, 
+device_id TEXT NOT NULL, 
 status TEXT NOT NULL, 
 datetime DATETIME DEFAULT CURRENT_TIMESTAMP
 )"""
@@ -81,21 +81,20 @@ def default_data(data,query):
 
     
 users = [("ADMIN","admin", "000", "admin")]
-devices = [("Version 1.0", "001"),("Version 2.0", "011"),("Version 3.0", "101")]
-sensor = [("001","Ph", "8"),("001","TDS", "28"),("001","Turbidity", "18"),("001","Temperature", "54")]
-notify = [("Ph threshold reached","Prepare a base solution", "1")]
+devices = [("Version 0.0", "000"),("Version 1.0", "001"),("Version 2.0", "011"),("Version 3.0", "101")]
+sensor = [("000","Ph", "8"),("000","TDS", "28"),("000","Turbidity", "18"),("000","Temperature", "54")]
+notify = [("Ph threshold reached","000", "1")]
 users_query = """ INSERT INTO users(user_type,user_id,device_id,password)VALUES(?,?,?,?)"""
 devices_query= """ INSERT INTO devices(device_type,device_id)VALUES(?,?)"""
 sensors_query= """ INSERT INTO sensors(device_id,sensor_type,sensor_reading)VALUES(?,?,?)"""
-notify_query= """ INSERT INTO notification(message,solution,status)VALUES(?,?,?)"""
+notify_query= """ INSERT INTO notification(message,device_id,status)VALUES(?,?,?)"""
 
 # date_created datetime default current_timestamp,
 # collected_date TEXT DEFAULT CURRENT_DATE
 
 if __name__ == "__main__":
-    # createDB()
-    # default_data(users, users_query)
-    # default_data(devices, devices_query)
-    # default_data(sensor, sensors_query)
-    # default_data(notify, notify_query)
-    print("hello")
+    createDB()
+    default_data(users, users_query)
+    default_data(devices, devices_query)
+    default_data(sensor, sensors_query)
+    default_data(notify, notify_query)
