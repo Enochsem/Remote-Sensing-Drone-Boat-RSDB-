@@ -18,7 +18,7 @@
                     <thead>
                         <tr>
                             <th>Message</th>
-                            <th>Solution</th>
+                            <th>Device ID</th>
                             <th>Date</th>
                             <th>Status</th>
                             <!-- <th>Control</th> -->
@@ -30,14 +30,14 @@
                         {% for data in range(data_lenght) %}
                         <tr>
                             <td>
-                                <a class="text-primary" href="{{url_for('notification_detail', notification_id = notification[data][0])}}">
-                                    {{notification[data][1]}}
+                                <a class="text-primary" href="{{url_for('notification_detail', notification_id = notification[data]['id'])}}">
+                                    {{notification[data]['message']}}
                                 </a>
                             </td>
-                            <td>{{notification[data][2]}}</td>
-                            <td>{{notification[data][4]}}</td>
+                            <td>{{notification[data]["device_id"]}}</td>
+                            <td>{{notification[data]["date"]}}</td>
                             <td>
-                                {% if notification[data][3] == "1" %}
+                                {% if notification[data]["status"] == "1" %}
                                 <span class="text-warning">Pending</span>
                                 {% else %}
                                 <span class="text-success">Read</span>

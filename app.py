@@ -84,13 +84,13 @@ def notification():
     #start a session here
     if not session.get("user_id"):
         return redirect('/')
-
+    device_id = str(session.get("device_id"))
     #get data from api
-    url = f"{baseURL}/notify"
+    url = f"{baseURL}/notify/{device_id}"
     response = api.get(url=url)
     if response.status_code == 200:
         data = response.json()
-        # print("response from api ",data)
+        # print("response from api ",data['response'][0]['message'])
         data_lenght = len(data['response'])
     return render_template("notification.html", notification=data['response'], data_lenght=data_lenght)
 
@@ -131,8 +131,8 @@ def ph():
     
     #get data from api
     url = f"{baseURL}/sensor_data"
-    params = {"device_id": device_id, "sensor_type":"Ph"}
-    response = api.get(url, params=params)
+    jsonData = {"device_id": device_id, "sensor_type":"Ph"}
+    response = api.get(url, json=jsonData)
     if response.status_code == 200:
         data = response.json()
         # print("response from api ",data)
@@ -157,8 +157,8 @@ def turbidity():
     
     #get data from api
     url = f"{baseURL}/sensor_data"
-    params = {"device_id": device_id, "sensor_type":"Turbidity"}
-    response = api.get(url, params=params)
+    jsonData = {"device_id": device_id, "sensor_type":"Turbidity"}
+    response = api.get(url, json=jsonData)
     if response.status_code == 200:
         data = response.json()
         # print("response from api ",data)
@@ -182,8 +182,8 @@ def tds():
     
     #get data from api
     url = f"{baseURL}/sensor_data"
-    params = {"device_id": device_id, "sensor_type":"TDS"}
-    response = api.get(url, params=params)
+    jsonData = {"device_id": device_id, "sensor_type":"TDS"}
+    response = api.get(url, json=jsonData)
     if response.status_code == 200:
         data = response.json()
         # print("response from api ",data)
@@ -207,8 +207,8 @@ def temperature():
     
     #get data from api
     url = f"{baseURL}/sensor_data"
-    params = {"device_id": device_id, "sensor_type":"Temperature"}
-    response = api.get(url, params=params)
+    jsonData = {"device_id": device_id, "sensor_type":"Temperature"}
+    response = api.get(url, json=jsonData)
     if response.status_code == 200:
         data = response.json()
         # print("response from api ",data)
@@ -245,24 +245,27 @@ def get_graph_data():
     device_id = request.args.get("device_id")
     sensor_type = request.args.get("sensor_type")
     url = f"{baseURL}/sensor_data"
-    params = {"device_id": device_id, "sensor_type":sensor_type}
-    response = api.get(url, params=params)
+    data = {"device_id": device_id, "sensor_type":sensor_type}
+    response = api.get(url, json=data)
     if response.status_code == 200:
         data = response.json()
         # print("response from api ",data)
-    return data
+        return data
 
 
 @app.route("/all_graph_data", methods=['GET'])
 def all_graph_data():
-    device_id = request.args.get("device_id")
+    device_id = str(request.args.get("device_id"))
+    print(device_id, "<===== DEVICE ID")
     #get all data from api
     url = f"{baseURL}/sensor_data/{device_id}"
     response = api.get(url=url)
     if response.status_code == 200:
         data = response.json()
-        # print("response from api ",data)
-    return data
+        print("response from api 1",data)
+        return data
+    # return {"response":"nothing"}
+    
 
 
 @app.route('/logout')

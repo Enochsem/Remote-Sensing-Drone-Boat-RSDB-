@@ -26,8 +26,8 @@
                         {% if data_lenght > 0 %}
                         {% for temperature in range(data_lenght) %}
                         <tr>
-                            <td>{{data[temperature][3]}}</td>
-                            <td>{{data[temperature][4]}}</td>
+                            <td>{{data[temperature]["value"]}}</td>
+                            <td>{{data[temperature]["date"]}}</td>
                             <td>
                                 <form action="" method="POST">
                                     <input type="text" name="delete_id" value="" hidden>
