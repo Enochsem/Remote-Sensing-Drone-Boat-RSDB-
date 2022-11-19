@@ -119,8 +119,8 @@ function phLineGraph(){
     // 
     const data = {
         datasets: [{label: 'Ph Sensor',fill: false,lineTension: 0,
-        backgroundColor: "rgba(0,0,205,1.0)",
-        borderColor: "rgba(0,0,255,0.1)",
+        backgroundColor: "rgba(250, 174, 27,3.1)",
+        borderColor: "rgba(8, 152, 231,3.0)",
         data: ph_coordinate}]
     }
 
@@ -154,8 +154,8 @@ function temperatureGraph(){
 
     data = {
         datasets: [{label: 'Temperature',fill: false,lineTension: 0,
-        backgroundColor: "rgba(0,255,0,1.0)",
-        borderColor: "rgba(0,255,0,0.1)",
+        backgroundColor: "rgba(250, 174, 27,3.1)",
+        borderColor: "rgba(8, 152, 231,3.0)",
         data:temperature_coordinate}]
     },
 
@@ -169,7 +169,7 @@ function temperatureGraph(){
                     ticks: {
                         callback: function(value, index) {
                             let short_date = this.getLabelForValue(value).slice(8,10)
-                            return `${short_date}`
+                            return `${3}`+`${short_date}`
                           }
                     }
                 }
@@ -191,8 +191,8 @@ function tubidityGraph(){
         datasets: [{
             label: 'Turbidity',
             data: tubidity_coordinate,
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ["rgba(250, 174, 27,5.1)",'rgb(255, 99, 132)','rgb(255, 99, 2)'],
+            borderColor: ["rgba(50, 17, 207,0.1)",'rgba(255, 99, 132, 1)'],
             borderWidth: 1}]
     }
 
@@ -224,7 +224,7 @@ function tdsGraph(){
         datasets: [{
           label: 'TDS Sensor',
           data: tds_coordinate,
-          backgroundColor: ['rgb(255, 99, 132)','rgb(255, 99, 2)'],
+          backgroundColor: ["rgba(250, 174, 27,5.1)",'rgb(255, 99, 132)','rgb(255, 99, 2)'],
           hoverOffset: 4
         }]
       };
@@ -265,7 +265,7 @@ function plot_graph(sensor_type, chart, coordinates){
           graph_data =  data['response'];
             // wiil change data return type to list of maps (json object)
           for (let index = 0; index < graph_data.length; index++) {
-            coordinates.push({x:`${graph_data[index]["date"]}`, y:graph_data[index]["value"]}, {x:'green',y:54});
+            coordinates.push({x:`${graph_data[index]["date"]}`, y:graph_data[index]["value"]});//, {x:'green',y:54}
             // String(graph_data[index]["date"]).substring(0,11)
           }
   

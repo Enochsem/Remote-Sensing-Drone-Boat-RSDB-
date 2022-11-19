@@ -41,7 +41,7 @@
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
-            <div class="sidebar-header border m-1 p-2 pt-3 text-center bg-primary">
+            <div class="sidebar-header border m-1 p-2 pt-3 text-center">
                 <!-- <center> <i class="fas fa-coins fa-3x text-center"></i></center> -->
                 <img src="../static/images/svg/drone.svg" alt="">
                 <h5>Remote Sensing</h5>
@@ -113,10 +113,10 @@
 
 
                 <div class="dropdown row mr-5">
-                    <div  class="mr-2  bg-primary text-center align-items-center " style="border: solid 1px blue; border-radius: 50%; height: 25px; width: 25px;">
-                        <i class="fa fa-user text-light" aria-hidden="true"></i></div>
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <div id="" class="userAvatar mr-2  text-center align-items-center  bg-primary" style="border: solid 1px blue;border-radius: 50%; height: 25px;  width: 25px;" >
+                        <i class="fa fa-user text-light" aria-hidden="true"></i>
+                    </div>
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <b id="avatar">{{session.get("user_id")}}</b>
                     </a>
 
