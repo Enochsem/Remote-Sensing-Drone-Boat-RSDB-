@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- refresh page every 30 seconds -->
+    <!-- <meta http-equiv="refresh" content="30"> -->
     <title>RSDB</title>
     {% block headscript %}
 
@@ -113,10 +115,14 @@
 
 
                 <div class="dropdown row mr-5">
-                    <div id="" class="userAvatar mr-2  text-center align-items-center  bg-primary" style="border: solid 1px blue;border-radius: 50%; height: 25px;  width: 25px;" >
+                    <div id="" class="userAvatar mr-2  text-center align-items-center  bg-primary position-relative" style="border: solid 1px blue;border-radius: 50%; height: 25px;  width: 25px;" >
                         <i class="fa fa-user text-light" aria-hidden="true"></i>
+                        <a href="/notification">
+                            <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger text-light">9</span>
+                        </a>
+                        <span class="sr-only">unread messages</span>
                     </div>
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="dropdown-toggle ml-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <b id="avatar">{{session.get("user_id")}}</b>
                     </a>
 

@@ -66,9 +66,9 @@ $(document).ready(function () {
     
 
     // single fuction to raw all graphs
-    temperal_co=[{x:'green dgsgshshsghjs',y:54},{x:'blue dgsgshshsghjs',y:64}]
-    let temperal_line_graph = null
-    drawGraph("line","temperal G",temperal_co,"temperal",temperal_line_graph,"rgba(255,0,0,0.3)","rgba(0,0,255,0.5)")
+    // temperal_co=[{x:'green dgsgshshsghjs',y:54},{x:'blue dgsgshshsghjs',y:64}]
+    // let temperal_line_graph = null
+    // drawGraph("line","temperal G",temperal_co,"temperal",temperal_line_graph,"rgba(255,0,0,0.3)","rgba(0,0,255,0.5)")
 
 });
 

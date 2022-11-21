@@ -256,13 +256,12 @@ def get_graph_data():
 @app.route("/all_graph_data", methods=['GET'])
 def all_graph_data():
     device_id = str(request.args.get("device_id"))
-    print(device_id, "<===== DEVICE ID")
     #get all data from api
     url = f"{baseURL}/sensor_data/{device_id}"
     response = api.get(url=url)
     if response.status_code == 200:
         data = response.json()
-        print("response from api 1",data)
+        # print("response from api 1",data)
         return data
     # return {"response":"nothing"}
     

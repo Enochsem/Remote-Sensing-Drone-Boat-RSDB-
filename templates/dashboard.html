@@ -26,6 +26,7 @@
                 </div>
             </div>
         </div>
+
         <!-- === temperature === -->
         <div class="col-md-3 col-sm-6 mb-4">
             <div class="card shadow-sm  py-2 mb-1 rounded borderLeft borderbottom">
@@ -34,8 +35,9 @@
                 </div>
             </div>
         </div>
-        <!-- === tds === -->
-        <div class="col-md-3 col-sm-6 mb-4">
+
+         <!-- === tds === -->
+         <div class="col-md-3 col-sm-6 mb-4">
             <div class="card shadow-sm  py-2 mb-1 rounded borderLeft borderbottom">
                 <div class="card-body">
                     <canvas id="tds" style="width:100%;max-width:600px; height:200px;  max-height:200px;"></canvas>    
@@ -47,13 +49,13 @@
     <br>
 
     <!-- temp -->
-    <div class="col-md-3 col-sm-6 mb-4">
+    <!-- <div class="col-md-3 col-sm-6 mb-4">
         <div class="card shadow-sm rounded borderLeft borderbottom">
             <div class="card-body">
                 <canvas id="temperal" style="width:100%;max-width:600px; height:200px;" ></canvas>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!--== hidden input to get device id into the javascript file === -->
@@ -101,24 +103,6 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                               TDS Sensor </div>
-                            <div id="TDS_value" class="h5 mb-0 font-weight-bold text-secondary">0.0%</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fa fa-cloud fa-2x " style="color: rgba(8, 152, 231,3.0);"></i>
-                            <!-- <i class="fas fa-clipboard  " aria-hidden="true"></i> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-            <div class="card shadow-sm h-100 py-2 rounded borderLeft borderbottom">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                Temperature Sensor </div>
                             <div id="Temperature_value" class="h5 mb-0 font-weight-bold text-secondary">0.0%</div>
                         </div>
@@ -130,7 +114,24 @@
                 </div>
             </div>
         </div>
-
+        
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card shadow-sm h-100 py-2 rounded borderLeft borderbottom">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                               TDS Sensor </div>
+                            <div id="TDS_value" class="h5 mb-0 font-weight-bold text-secondary">0.0%</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa fa-cloud fa-2x " style="color: rgba(8, 152, 231,3.0);"></i>
+                            <!-- <i class="fas fa-clipboard  " aria-hidden="true"></i> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>
