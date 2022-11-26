@@ -128,9 +128,10 @@ def post_sensor_readings(device_id):
     if database.check_device_id(device_id):
         print("raw",data)
         database.insert_all_sensor_readings(deviceSensor.toTuple(data, device_id))
+        # time.sleep_ms(300)
+        #check the thresholds here and insert them into a notification table
+        database.checkThreshold(data,device_id=device_id)
         return jsonify({"response":"Received"}) , 201
-    #check the thresholds here and insert them into a notification table
-    deviceSensor.checkThreshold(data)
     return jsonify({"response":"Invalid Request"}) , 401
 
 
@@ -160,6 +161,21 @@ def notify(device_id):
         if len(data) > 0:
             return jsonify({"response":response}) , 200
     return jsonify({"response":"invalid credentials"}) , 401
+
+
+
+@app.route("/notification_count/<string:device_id>", methods=['GET'])
+def notification_count(device_id):
+    table_name = "notification"
+    column_name = "device_id"
+    database = Database()
+    if database.check_device_id(device_id):
+        data = database.select_where2(table_name, column_name, device_id, "status", "-1")
+        response = len(data)
+        if len(data) > 0:
+            return jsonify({"response":response}) , 200
+    return jsonify({"response":"invalid credentials"}) , 401
+
 
 
 def to_user_json(data):

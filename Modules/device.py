@@ -19,23 +19,23 @@ class DeviceSensor():
         return [(device_id,sensor_type,str(sensor_reading)) for sensor_type, sensor_reading in data.items()]    
 
     
-    def checkThreshold (self,json_data,device_id):
-        threshold = {"Ph": 8,"Temperature" : 32,"TDS": 400,"Turbidity": 150 }
-        for sensor_key, sensor_reading in json_data.items():
-            for threshold_key, threshold_value in threshold.items():
-                if threshold_key == sensor_key: 
-                    self.highThreshold(sensor_reading, threshold_value,threshold_key,device_id)
-                    self.lowThreshold(sensor_reading, threshold_value,threshold_key,device_id)
+    # def checkThreshold (self,json_data,device_id):
+    #     threshold = {"Ph": 8,"Temperature" : 32,"TDS": 400,"Turbidity": 150 }
+    #     for sensor_key, sensor_reading in json_data.items():
+    #         for threshold_key, threshold_value in threshold.items():
+    #             if threshold_key == sensor_key: 
+    #                 self.highThreshold(sensor_reading, threshold_value,threshold_key,device_id)
+    #                 self.lowThreshold(sensor_reading, threshold_value,threshold_key,device_id)
 
-    def highThreshold(self,sensor_reading,threshold_value,threshold_key,device_id):
-        if int(sensor_reading) > threshold_value:
-            message= f"Threshold of {threshold_value} reach for {threshold_key}"
-            status = database.insert("notification", message, device_id, "1")
-            time.sleep(0.3)
+    # def highThreshold(self,sensor_reading,threshold_value,threshold_key,device_id):
+    #     if int(sensor_reading) > threshold_value:
+    #         message= f"Threshold of {threshold_value} reach for {threshold_key}"
+    #         status = database.insert("notification", message, device_id, "1")
+    #         time.sleep(0.3)
 
-    def lowThreshold(self,sensor_reading,threshold_value,threshold_key,device_id):
-        if int(sensor_reading) < threshold_value:
-            message= f"{threshold_key}is below the threshold at {threshold_value}"
-            status = database.insert("notification", message, device_id, "1")
-            time.sleep(0.3)    
+    # def lowThreshold(self,sensor_reading,threshold_value,threshold_key,device_id):
+    #     if int(sensor_reading) < threshold_value:
+    #         message= f"{threshold_key}is below the threshold at {threshold_value}"
+    #         status = database.insert("notification", message, device_id, "1")
+    #         time.sleep(0.3)    
 

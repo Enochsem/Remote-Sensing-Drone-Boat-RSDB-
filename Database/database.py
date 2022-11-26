@@ -1,5 +1,6 @@
 import sqlite3
 import datetime
+import time
 
 
 
@@ -28,7 +29,7 @@ class Database():
             self.cursor.execute(f"INSERT INTO {self.USERS_TABLE}('user_type','user_id', 'device_id', 'password')VALUES(?,?,?,?)", 
             (_user.user_type, _user.user_id, _user.device_id, _user.password))
             self.connection.commit()
-            
+
             return True
         return False
 
@@ -43,7 +44,7 @@ class Database():
         return {"response":"Invalid Credencials"}, False
 
 
-    def insert_readings(self,sensor_data):
+    def insert_readings(self,sensor_data): #old
         sensor = sensor_data
         #insert data from the sensors (one data at a time)
         self.cursor.execute(f"INSERT INTO {self.SENSOR_TABLE}('device_id','sensor_type','sensor_reading','datetime')VALUES(?,?,?,?)",
@@ -56,16 +57,41 @@ class Database():
         query = "INSERT INTO sensors(device_id,sensor_type,sensor_reading)VALUES(?,?,?)"
         self.cursor.executemany(query, data)
         self.connection.commit()
+        # self.connection.close()
         return True
       
     
-    def insert(self,table,message, solution,status):
-        sensor = sensor_data
-        #insert data from the sensors
-        self.cursor.execute(f"INSERT INTO {table}('message','solution','status')VALUES(?,?,?)",
-        (message, solution,status))
+    def insert(self,table,message, device_id, status):
+        #insert data 
+        self.cursor.execute(f"INSERT INTO {table}('message','device_id','status')VALUES(?,?,?)",
+        (message, device_id,status))
         self.connection.commit()
+        # self.connection.close()
         return True
+
+    
+
+    def checkThreshold (self,json_data,device_id):
+        threshold = {"Ph": 8,"Temperature" : 32,"TDS": 400,"Turbidity": 150 }
+        for sensor_key, sensor_reading in json_data.items():
+            for threshold_key, threshold_value in threshold.items():
+                if threshold_key == sensor_key: 
+                    self.highThreshold(sensor_reading, threshold_value,threshold_key,device_id)
+                    self.lowThreshold(sensor_reading, threshold_value,threshold_key,device_id)
+
+    def highThreshold(self,sensor_reading,threshold_value,threshold_key,device_id):
+        if int(sensor_reading) > threshold_value:
+            message= f"Threshold of {threshold_value} reach for {threshold_key}"
+            status = self.insert("notification", message, device_id, "1")
+            time.sleep(0.3)
+
+    def lowThreshold(self,sensor_reading,threshold_value,threshold_key,device_id):
+        if int(sensor_reading) < threshold_value:
+            message= f"{threshold_key}is below the threshold at {threshold_value}"
+            status = self.insert("notification", message, device_id, "1")
+            time.sleep(0.3)
+
+
 
 
     def select(self,table_name):
