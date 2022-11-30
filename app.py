@@ -29,6 +29,7 @@ def index():
                 session["user_id"]= data['user_id']
                 session["device_id"]= data['device_id']
                 #session["password"]= data['password']
+
                 return redirect(location='/dashboard')
                 
         if request.form['submit'] =='signup':
@@ -71,12 +72,20 @@ def dashboard():
     #start a session check
     if not session.get("user_id"):
         return redirect('/')
+    notification_count = 0
     #get session data
     user_id = session.get("user_id")
     device_id = str(session.get("device_id"))
     password = session.get("password")
 
-    return render_template("dashboard.html")
+    # request notification count
+    session.get('device_id')
+    url= baseURL+f"/notification_count{device_id}"
+    response = api.get(url=url)
+    if response.status_code == 200:
+        data = response.json()
+        notification_count = data['response']
+    return render_template("dashboard.html", count = notification_count)
 
 
 @app.route('/notification')
