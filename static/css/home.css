@@ -152,6 +152,11 @@ body{
   
 } */
 
+.carousel{
+  overflow-x: hidden;
+
+}
+
 .carousel-item{
   margin: 0 25%;
 }
