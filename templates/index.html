@@ -10,60 +10,121 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- jquery cdn -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"crossorigin="anonymous"></script>
+    <!--for slider-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <div class = "navbar">
-            <div class="logo">
-                <div class="logo_image">
-                    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="42px" width="40px">
+    <div class="container-fluid">
+        <header>
+            <div class = "navbar">
+                <div class="logo">
+                    <div class="logo_image">
+                        <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="42px" width="40px">
+                    </div>
+                    <p class="logo_text">RSDB</p>
                 </div>
-                <p class="logo_text">RSDB</p>
-            </div>
-            <div class="buttons">
-                <div class="login" data-toggle="modal" data-target="#userlogin">
-                    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
-                    <a ><strong>Login</strong></a>
+                <div class="buttons">
+                    <div class="login" data-toggle="modal" data-target="#userlogin">
+                        <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px">
+                        <a ><strong>Login</strong></a>
+                    </div>
+                    <div class="register" data-toggle="modal" data-target="#usersignup">
+                        <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px" >
+                        <a><strong>Register</strong></a>
+                    </div>
                 </div>
-                <div class="register" data-toggle="modal" data-target="#usersignup">
-                    <img src="{{url_for('static', filename='images/drone.png')}}" alt="drone" height="15px" width="15px" >
-                    <a><strong>Register</strong></a>
+            </div>
+        </header>
+        <div class="toptext">
+            <h1>Remote Sensing Made Easy</h1>
+        </div>
+        <div class="shapes">
+            
+            <div class="shape1">
+            </div>
+            <div class="shape2">
+                <div class="shape22">
                 </div>
             </div>
         </div>
-    </header>
-    <div class="toptext">
-        <h1>Remote Sensing Made Easy</h1>
-    </div>
-    <div class="shapes">
-        <div class="shape1">
+        <div class="screenshot">
         </div>
-        <div class="shape2">
-            <div class="shape22">
+        <br>
+
+        <div class="function_block">
+            <h3 class="function_heading">PURPOSE OF RSDB</h3>
+            
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                    <li data-target="#demo" data-slide-to="3"></li>
+                </ul>
+                
+                <!-- The slideshow -->
+                <!-- <div class="carousel-inner"> -->
+                    <!-- <div class="function-list"></div> -->
+                    <div class="carousel-item active">
+                        <div class="function">
+                            <div class="image">
+                                <img src= "{{url_for('static', filename='/images/images (2).jpeg')}}" alt="beaker">
+                            </div>
+                            <span class="text">
+                                To measure some physiochemical properties of water - pH, turbidity,temperature,electrical conductivity - suitable for aquaculture.
+                            </span>  
+                        </div>          
+                    </div>
+                    <div class="carousel-item">
+                        <div class="function">
+                            <span class="text">
+                                To provide real-time analysis of the sensor data and recommend appropriate corrective measures.
+                            </span>
+                            <div class="image">
+                                <img src="{{url_for('static', filename='/images/images (1).jpeg')}}" alt="drone" >
+                            </div>    
+                        </div>        
+                    </div>
+                    <div class="carousel-item">
+                        <div class="function">
+                            <div class="image">
+                                <img src="{{url_for('static', filename='/images/images (7).jpeg')}}" alt="drone">
+                            </div>
+                            <span class="text">
+                                To be able to carry out water quality analysis at remote locations
+                            </span>
+                        </div>            
+                    </div>
+                    <div class="carousel-item">
+                        <div class="function">
+                            <span class="text">
+                                To design a mobile and low cost water quality checker.
+                            </span>
+                            <div class="image">
+                                <img src= "{{url_for('static', filename='/images/images (3).jpeg')}}" alt="drone">
+                            </div>
+                        </div>
+                    </div>
+                <!-- </div> -->
+
+            
+                
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev " href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon btn-primary bg-primary w-25 h-75"></span>
+                </a>
+                <a class="carousel-control-next h-100" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon bg-primary w-25 h-75"></span></a>
             </div>
         </div>
     </div>
-    <div class="screenshot">
-    </div>
-    <br>
-    <div class="function_block">
-        <h3 class="function_heading">PURPOSE OF RSDB</h3>
-        <div class="function_list">
-            <div class="function_1">
-                <span class="numbers">1</span> 
-                To measure some physiochemical properties of water - pH, turbidity,temperature,electrical conductivity - suitable for aquaculture.</div>
-            <div class="function_2">
-                <span class="numbers">2</span> 
-                To provide real-time analysis of the sensor data and recommend appropriate corrective measures.</div>
-            <div class="function_3">
-                <span class="numbers">3</span> 
-                To be able to carry out water quality analysis at remote locations</div>
-            <div class="function_4">
-                <span class="numbers">4</span> 
-                To design a mobile and low cost water quality checker.</div>
-        </div>
-    </div>
+
+    
    
 
 
