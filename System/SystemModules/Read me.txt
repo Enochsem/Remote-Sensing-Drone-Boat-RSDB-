@@ -1,0 +1,15 @@
+https://learn.adafruit.com/mcp3008-spi-adc/python-circuitpython
+
+MCP3004 setup
+Step
+1. Enable I2C
+2. sudo pip3 install adafruit-circuitpython-mcp3xxx
+
+
+
+
+TDS
+1.https://www.seeedstudio.com/Grove-TDS-Sensor-p-4400.html
+
+2.https://wiki.seeedstudio.com/Grove-TDS-Sensor/
+VOLTAGE calculations

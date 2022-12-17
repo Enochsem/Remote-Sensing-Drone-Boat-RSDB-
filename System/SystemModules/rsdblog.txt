@@ -1,0 +1,10 @@
+Sensor data ==> {'Ph': 21.0, 'Temperature': 0.04, 'TDS': 25.16, 'Turbidity': -4321.65} 2022-12-16 04:30:20.721820 
+Sensor data ==> {'Ph': 21.18, 'Temperature': '25.125', 'TDS': '12.66', 'Turbidity': '-4346.45'} ==> 2022-12-16 05:05:19.086154 
+Sensor data ==> {'Ph': 20.9, 'Temperature': '25.12', 'TDS': '39.07', 'Turbidity': '-4394.77'} ==> 2022-12-16 05:07:58.366075 
+Sensor data ==> {'Ph': 10.435, 'Temperature': '25.12', 'TDS': '36.0', 'Turbidity': 4400.28} ==> 2022-12-16 05:11:38.446066 
+Sensor data ==> {'Ph': 10.55, 'Temperature': '25.25', 'TDS': '32.92', 'Turbidity': 110.06475} ==> 2022-12-16 05:16:47.486160 
+Sensor data ==> {'Ph': 10.585, 'Temperature': '25.12', 'TDS': '7.93', 'Turbidity': 435.116} ==> 2022-12-16 05:21:05.006176 
+Sensor data ==> {'Ph': 10.425, 'Temperature': '25.19', 'TDS': '54.23', 'Turbidity': 439.47700000000003} ==> 2022-12-16 05:24:14.206268 
+Post Error ==> 500 ==> 2022-12-16 05:24:15.611127 
+Sensor data ==> {'Ph': 10.47, 'Temperature': '25.19', 'TDS': '54.23', 'Turbidity': 440.75} ==> 2022-12-16 05:27:32.126462 
+Post Error ==> 500 ==> 2022-12-16 05:27:33.403471 
