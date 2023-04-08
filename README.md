@@ -64,7 +64,8 @@ This is the system's actual design. It is the physical component that the user c
 Figure 5 
 Hardware Design 
  
-Sequence Diagram
+Fritzin Diagram
+![My Image](images/fritzingdiagram.jpg)
 
 
 
