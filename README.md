@@ -1,5 +1,12 @@
 # Remote-Sensing-Drone-Boat-RSDB-
+<img
+  src="./images/rsdb.jpg"
+  alt="system"
+  title="RSDB"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
+
 RSDB is an IOT based syytem that can float on water to gather water quality data using its sensors and fly, it is equipped with sensor and actuators that make it able to perceive it environment and act on them. 
+
 
 #Add all documentation to projects 
 
