@@ -48,6 +48,7 @@ The system design assists in designing the overall system architecture as well a
 
 
 Figure 3 
+![My Image](images/systemdesign.png)
 General System Design 
  
 
@@ -55,6 +56,7 @@ Flowchart
 A flowchart is a diagram that depicts the steps in a process. It began as a tool for describing algorithms and programming logic, but it has now been expanded to encompass a wide range of operations. Flowcharts are now widely used for showing data and supporting reasoning. They aid in the visualization of complex processes and the clarification of the structure of problems and activities. A flowchart can also be used to define a process or project that needs to be carried out. Here's a diagram of how the system should work after it's finished.
 
 Figure 4
+![My Image](images/flowchart.png)
  System Flowchart 
  
 The Hardware Design
@@ -62,6 +64,7 @@ This is the system's actual design. It is the physical component that the user c
 
 
 Figure 5 
+![My Image](images/hardwaredesign.png)
 Hardware Design 
  
 Fritzin Diagram
