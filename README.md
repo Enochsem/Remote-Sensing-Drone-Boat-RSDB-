@@ -15,24 +15,24 @@ Current water quality monitoring systems analyze the parameters individually and
 devices must be manually placed in the water body. Water quality measurement is difficult to gather over large bodies of water in a short amount of time, 
 and hence makes the scope of water quality monitoring limited. 
 
-#Research Questions
+## Research Questions
 i.	Is the scope of water quality monitoring limited?
 ii.	Will the designed system be able to fly and float on water?
 iii.	How accurate are the measurements of the system?
 iv.	What form of communication will exist between devices?
 v.	How will end users access the parameters measured?
 
-#Purpose of the Study
+## Purpose of the Project
 Making water quality monitoring easier by decreasing manual testing and assessment of water.
 To help researchers and fishermen be able to measure water quality and also monitor and pridict 
 the migration patterns of aquatic life on larger bodies of water.
 
-#Significance of Study
+## Significance of Project
 The system is meant to take different parameter readings and display them all on a graphical user interface 
 to save time used in manually calculating every parameter reading needed. 
 The study also provides easier mobility and remote sensing, an upgrade from the water quality monitoring systems currently in use.
 
-#Objectives
+## Objectives
 The objective of this study is:
 •	To measure some physicochemical properties of water - pH, turbidity, temperature, electrical conductivity of water
 •	To provide real-time analysis of the sensor data and visualization.
@@ -41,7 +41,7 @@ The objective of this study is:
 •	To be able to carry out water quality analysis at remote locations. 
 •	To eradicate errors and accidents that take place when the data is collected manually.
 
-#System Design
+## System Design
 The system design assists in designing the overall system architecture as well as describing hardware and system requirements needed to produce the results. Hardware designs, use case diagrams, sequence diagrams, transition diagrams, and prototypes are among the deliverables created at this stage.
 
 
