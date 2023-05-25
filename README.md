@@ -68,19 +68,9 @@ Figure 5
 Hardware Design 
  
 Fritzin Diagram
-![My Fritzin Diagram](images/fritzingdiagram.jpg)
-
-
-
-
-*Getting started*
-To get started with this project, you need understand the basics of micro controllers.
-
-*Material Requirements*
-- Raspberry Pi 
-- arduino 
-
-
-*Required libraries*
-
-*Setting-up your controller*
+<!-- ![My Fritzin Diagram](images/fritzingdiagram.jpg) -->
+<img
+  src="./images/fritzingdiagram.jpg"
+  alt="Fritzin Diagram"
+  title="Fritzin Diagram"
+  style="display: inline-block; margin: 0 auto; max-width: 200px; height: 100px; width:100px;">
