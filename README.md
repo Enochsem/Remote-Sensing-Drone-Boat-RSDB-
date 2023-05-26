@@ -64,7 +64,7 @@ Figure 4 : System Flowchart
   src="./images/flowchart.png"
   alt="System Flowchart"
   title="System Flowchart"
-  style="display: inline-block; margin: 0 auto; height: 400px; width:400px; background-color: white;">
+  style="display: inline-block; margin: auto; height: 400px; width:400px; background-color: white;">
  
 ### The Hardware Design
 This is the system's actual design. It is the physical component that users can see and feel. The system's hardware design is depicted in the diagram below.
@@ -75,7 +75,7 @@ Figure 5 : Hardware Design
   src="./images/hardwaredesign.png"
   alt="Hardware Design"
   title="Hardware Design"
-  style="display: inline-block; margin: 0 auto; height: 400px; width:400px; background-color: white;">
+  style="display: inline-block; margin: auto; height: 400px; width:400px; background-color: white;">
  
 
 ### Electronic Circuit Design 
