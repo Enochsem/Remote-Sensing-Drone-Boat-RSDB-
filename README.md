@@ -47,9 +47,8 @@ The system design assists in designing the overall system architecture as well a
 
 
 
-Figure 3 
-<!-- ![My System Design](images/systemdesign.png) -->
-General System Design 
+Figure 3 : General System Design
+<!-- ![My System Design](images/systemdesign.png) --> 
  <img
   src="./images/systemdesign.png"
   alt="System Design"
@@ -59,32 +58,52 @@ General System Design
 ### Flowchart
 A flowchart is a diagram that depicts the steps in a process. It began as a tool for describing algorithms and programming logic, but it has now been expanded to encompass a wide range of operations. Flowcharts are now widely used for showing data and supporting reasoning. They aid in the visualization of complex processes and the clarification of the structure of problems and activities. A flowchart can also be used to define a process or project that needs to be carried out. Here's a diagram of how the system should work after it's finished.
 
-Figure 4
-<!-- ![My System Flowchart](images/flowchart.png) -->
- System Flowchart 
+Figure 4 : System Flowchart
+<!-- ![My System Flowchart](images/flowchart.png) --> 
   <img
   src="./images/flowchart.png"
   alt="System Flowchart"
   title="System Flowchart"
   style="display: inline-block; margin: 0 auto; height: 400px; width:400px; background-color: white;">
  
-The Hardware Design
-This is the system's actual design. It is the physical component that the user can see and feel. The system's hardware design is depicted in the diagram below.
-
-
-Figure 5 
+### The Hardware Design
+This is the system's actual design. It is the physical component that users can see and feel. The system's hardware design is depicted in the diagram below.
+ 
+Figure 5 : Hardware Design 
 <!-- ![My Hardware Design](images/hardwaredesign.png) -->
-Hardware Design 
 <img
   src="./images/hardwaredesign.png"
   alt="Hardware Design"
   title="Hardware Design"
   style="display: inline-block; margin: 0 auto; height: 400px; width:400px; background-color: white;">
  
+
+### Electronic Circuit Design 
+The tools used to design and verify integrated circuits (ICs), printed circuit boards, and other electronic devices are referred to as electronic design automation (EDA). Electronic systems in general, as well as printed circuit boards (PCBs).
+
 Fritzin Diagram
 <!-- ![My Fritzin Diagram](images/fritzingdiagram.jpg) -->
 <img
   src="./images/fritzingdiagram.jpg"
   alt="Fritzin Diagram"
   title="Fritzin Diagram"
-  style="display: inline-block; margin: 0 auto; height: 800px; width:500px;">
+  style="display: inline-block; margin: auto; height: 500px; width:800px;">
+
+
+## Building the front end
+	The user can view real-time sensor readings on the front end. Data from the system can also be downloaded by the user. The user must first create an account using his or her device ID in order to log in. The username and password used during registration can then be used to log into the system.
+
+RSDB Homepage
+<img
+  src="./images/homePage.PNG"
+  alt="home page"
+  title="RSDB home Page"
+  style="display: inline-block; margin: 0 auto; ">
+
+
+RSDB Dashboard
+<img
+  src="./images/dashboard.jpg"
+  alt="system dashboard"
+  title="RSDB dashboard"
+  style="display: inline-block; margin: 0 auto; ">
