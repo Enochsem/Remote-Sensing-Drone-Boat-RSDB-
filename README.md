@@ -73,4 +73,4 @@ Fritzin Diagram
   src="./images/fritzingdiagram.jpg"
   alt="Fritzin Diagram"
   title="Fritzin Diagram"
-  style="display: inline-block; margin: 0 auto; max-width: 200px; height: 100px; width:100px;">
+  style="display: inline-block; margin: 0 auto; max-width: 500px; height: 100px; width:100px;">
