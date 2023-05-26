@@ -54,22 +54,32 @@ General System Design
   src="./images/systemdesign.png"
   alt="System Design"
   title="System Design"
-  style="display: inline-block; margin: 0 auto; height: 400px; width:400px;">
+  style="display: inline-block; margin: 0 auto; height: 400px; width:400px; background-color: white;">
 
 ### Flowchart
 A flowchart is a diagram that depicts the steps in a process. It began as a tool for describing algorithms and programming logic, but it has now been expanded to encompass a wide range of operations. Flowcharts are now widely used for showing data and supporting reasoning. They aid in the visualization of complex processes and the clarification of the structure of problems and activities. A flowchart can also be used to define a process or project that needs to be carried out. Here's a diagram of how the system should work after it's finished.
 
 Figure 4
-![My System Flowchart](images/flowchart.png)
+<!-- ![My System Flowchart](images/flowchart.png) -->
  System Flowchart 
+  <img
+  src="./images/flowchart.png"
+  alt="System Flowchart"
+  title="System Flowchart"
+  style="display: inline-block; margin: 0 auto; height: 400px; width:400px; background-color: white;">
  
 The Hardware Design
 This is the system's actual design. It is the physical component that the user can see and feel. The system's hardware design is depicted in the diagram below.
 
 
 Figure 5 
-![My Hardware Design](images/hardwaredesign.png)
+<!-- ![My Hardware Design](images/hardwaredesign.png) -->
 Hardware Design 
+<img
+  src="./images/hardwaredesign.png"
+  alt="Hardware Design"
+  title="Hardware Design"
+  style="display: inline-block; margin: 0 auto; height: 400px; width:400px; background-color: white;">
  
 Fritzin Diagram
 <!-- ![My Fritzin Diagram](images/fritzingdiagram.jpg) -->
@@ -77,4 +87,4 @@ Fritzin Diagram
   src="./images/fritzingdiagram.jpg"
   alt="Fritzin Diagram"
   title="Fritzin Diagram"
-  style="display: inline-block; margin: 0 auto; height: 400px; width:400px;">
+  style="display: inline-block; margin: 0 auto; height: 800px; width:500px;">
