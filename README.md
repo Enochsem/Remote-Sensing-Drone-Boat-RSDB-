@@ -98,7 +98,7 @@ RSDB Homepage
   src="./images/homePage.PNG"
   alt="home page"
   title="RSDB home Page"
-  style="display: inline-block; margin: 0 auto; ">
+  style="display: inline-block; margin: 0 auto; height: 300px; width:300px;">
 
 
 RSDB Dashboard
@@ -106,4 +106,4 @@ RSDB Dashboard
   src="./images/dashboard.jpg"
   alt="system dashboard"
   title="RSDB dashboard"
-  style="display: inline-block; margin: 0 auto; ">
+  style="display: inline-block; margin: 0 auto; height: 300px; width:300px;">
